@@ -209,7 +209,7 @@
 <blockquote>
 <p>先二分,比这个值大的路径必须经过被删的边.</p>
 <p>假设有$k$条超过限制的路径,对于每一条路径,所有边的$cnt + 1$,然后看被所有$cnt = k$的的边,删掉其中最长的边,看是否满足条件.</p>
-<p>对于$cnt + 1$的操作,用树上差分实现.每次让$cnt<em>{u} ++$,$cnt</em>{v} ++$,$cnt_{lca} -=2$.</p>
+<p>对于$cnt + 1$的操作,用树上差分实现.每次让$cnt_{u} ++$,$cnt_{v} ++$,$cnt_{lca} -=2$.</p>
 <p>时间复杂度$O((n + m)logv)$.</p>
 </blockquote>
 <ul>
@@ -351,7 +351,7 @@
 </li>
 </ul>
 <blockquote>
-<p>模型:$f<em>{i} = max(f</em>{j}) + a_{i} (i-k \leq j &lt; i)$.</p>
+<p>模型:$f_{i} = max(f_{j}) + a_{i} (i-k \leq j &lt; i)$.</p>
 </blockquote>
 <ul>
 <li><p>二维数点问题</p>

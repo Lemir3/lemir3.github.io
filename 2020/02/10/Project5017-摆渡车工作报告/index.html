@@ -138,13 +138,13 @@
   </div><div class="post-content"><p>摘要:斜率优化dp</p>
 <a id="more"></a>
 <h1 id="P5017-摆渡车"><a href="#P5017-摆渡车" class="headerlink" title="P5017 摆渡车"></a>P5017 摆渡车</h1><p><a href="https://www.luogu.com.cn/problem/P5017" target="_blank" rel="noopener"><em>题面</em></a></p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>先假设在$T<em>1 , T_2 , T_3 … T_k$时刻发车$(T</em>{i-1} +m \leq T_{i})$,那么得到总代价的式子:</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>先假设在$T_1 , T_2 , T_3 … T_k$时刻发车$(T_{i-1} +m \leq T_{i})$,那么得到总代价的式子:</p>
 <blockquote>
-<p>$\sum<em>{i=1}^{k} \sum</em>{T_i-1 &lt; t_j \leq T_i}(T_i - t_j)$</p>
+<p>$\sum_{i=1}^{k} \sum_{T_i-1 &lt; t_j \leq T_i}(T_i - t_j)$</p>
 </blockquote>
 <p>然后像分块一样化简这个和式(s为i秒前来到站台的人数):</p>
 <blockquote>
-<p>$(\sum<em>{i=1}^{k}((s[T_i]-s[T</em>{i-1}])*T<em>i)-\sum</em>{i=1}^{n}t_i$</p>
+<p>$(\sum_{i=1}^{k}((s[T_i]-s[T_{i-1}])*T_i)-\sum_{i=1}^{n}t_i$</p>
 </blockquote>
 <p>可以这样用整体法理解:把每次车来回的时间中等待的总人数求出来,乘上这个车下次到来的时刻,减去每个这段时间内等待的人来的时刻,就得到了这段时间的代价.</p>
 <p>发现后面的和式是固定的,考虑使用dp求出前面和式的最小值.</p>

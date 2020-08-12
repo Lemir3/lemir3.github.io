@@ -145,7 +145,7 @@
 <p>然后在这棵树上考使用树形dp,设f(i,j)表示i点的子树内放j个数的方案数,g(i,j)表示i点代表的矩形里什么都不放,j个数全放在子树里的方案数,设点表示的矩阵宽为b,高为a.</p>
 <p>这样就可以得到转移:</p>
 <blockquote>
-<p>  $g[u][i]+=f[c[u][0]][j] \times f[c[u][1]][i-j] ~(0 \leq j \leq i)$<br>    $f[u][i]+=g[u][j] \times C^a<em>{i-j} \times C^{b-j}</em>{i-j} \times (i-j)! ~(0 \leq j \leq i)$</p>
+<p>  $g[u][i]+=f[c[u][0]][j] \times f[c[u][1]][i-j] ~(0 \leq j \leq i)$<br>    $f[u][i]+=g[u][j] \times C^a_{i-j} \times C^{b-j}_{i-j} \times (i-j)! ~(0 \leq j \leq i)$</p>
 </blockquote>
 <p>第一个很好懂,因为左右子树互不影响,所以直接并起来即可.</p>
 <p>第二个就是考虑在子树里放了j个,自己的矩形里放i-j个,因为数放在子树里,所以当前矩形的宽上只剩b-j个位置,高上全都可以放,让后乘上这i-j个的全排列即可.</p>

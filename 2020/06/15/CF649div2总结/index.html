@@ -144,7 +144,7 @@
 <p>考虑如果整个序列的和不被k整除那就直接输出原序列,然后如果整个序列的和都被k整除的话,考虑从首位删数.</p>
 <p>删去k的倍数肯定没用,所以删去第一个不被k整除的数,看删左边那一个数优还是右边的优.</p>
 <h3 id="B-1300"><a href="#B-1300" class="headerlink" title="B *1300"></a><a href="https://codeforces.com/contest/1364/problem/B" target="_blank" rel="noopener">B *1300</a></h3><blockquote>
-<p>给定序列s,拿出一个最小的子序列p,使得$|p<em>1-p_2|+|p_2-p_3|+\ldots+|p</em>{k-1}-p_k|$最大.</p>
+<p>给定序列s,拿出一个最小的子序列p,使得$|p_1-p_2|+|p_2-p_3|+\ldots+|p_{k-1}-p_k|$最大.</p>
 </blockquote>
 <p>不考虑子序列最小的话,发现原序列的式子就是最大的.</p>
 <p>因为可以发现在一个有单调性的子串中,可以只保留开头一个和结尾一个,容易发现这样对式子的值没有影响.</p>
@@ -154,7 +154,7 @@
 <h3 id="C-1600"><a href="#C-1600" class="headerlink" title="C *1600"></a><a href="https://codeforces.com/contest/1364/problem/C" target="_blank" rel="noopener">C *1600</a></h3><blockquote>
 <p>  给定一个单增序列a,构造一个序列b,使得$b_1 \cdots b_i$中未出现的最小非负整数为$a_i$,$0 \leq a_i \leq i.$</p>
 </blockquote>
-<p>因为$0\leq a<em>i \leq i$而且a单增,所以有$a_i=a_i-1$或者$a_i&gt;a</em>{i-1}$,所以如果是$a<em>i &gt; a</em>{i-1}$,那么$b<em>i$就只能等于$a</em>{i-1}$,因为序列单增,既然我们已经让$b<em>1 \cdots b</em>{i-1}$中未出现的最小非负整数等于$a<em>{i-1}$了,现在就应该让$b_i$等于$a</em>{i-1}$把它排除掉.</p>
+<p>因为$0\leq a_i \leq i$而且a单增,所以有$a_i=a_i-1$或者$a_i&gt;a_{i-1}$,所以如果是$a_i &gt; a_{i-1}$,那么$b_i$就只能等于$a_{i-1}$,因为序列单增,既然我们已经让$b_1 \cdots b_{i-1}$中未出现的最小非负整数等于$a_{i-1}$了,现在就应该让$b_i$等于$a_{i-1}$把它排除掉.</p>
 <p>然后考虑其他位置,先不考虑已经填过的数,发现$b_1 \cdots b_i$中未出现的非负整数小于等于$a_i$,所以说我们要让后填入的$b_i$尽量大,因为有$a_i \leq i$,所以单增的填入,让$b_1 \cdots b_i$中每一个数都小于$a_i$即可.</p>
 <h3 id="D-2100"><a href="#D-2100" class="headerlink" title="D *2100"></a><a href="https://codeforces.com/contest/1364/problem/D" target="_blank" rel="noopener">D *2100</a></h3><blockquote>
 <p>  给定一张联通无向图和一个整数k,求出$\lceil \frac{k}{2} \rceil$个独立的点或者大小小于等于k的简单环.</p>

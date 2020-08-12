@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="哈尔科夫机车厂最长异或路径研究进展顺利"><meta name="keywords" content="题解, 字符串, Trie, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<meta name="description" content="哈尔科夫机车厂最长异或路径研究进展顺利"><meta name="keywords" content="字符串, Trie, 题解, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
 <link rel="canonical" href="https://www.lemir3.red/2019/07/30/哈尔科夫机车厂最长异或路径研究进展顺利/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
@@ -145,7 +145,7 @@
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>一棵带权树,求树上任意两点间最长的异或路径.</p>
 <p>树上任意两点之间的距离,从$LCA$算法中我们可以得知可以这样求:</p>
 <blockquote>
-<p>$dis<em>{ij}$=$depth_i$+$depth_j$-$2$*$depth</em>{LCA_{ij}}$</p>
+<p>$dis_{ij}$=$depth_i$+$depth_j$-$2$*$depth_{LCA_{ij}}$</p>
 </blockquote>
 <p>什么是异或呢,简单地说,两数相同则为0,不同则为1.</p>
 <p>所以说有如下性质:</p>
@@ -184,9 +184,9 @@
   </div>
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/题解/">题解</a>
             <a href="/tags/字符串/">字符串</a>
             <a href="/tags/Trie/">Trie</a>
+            <a href="/tags/题解/">题解</a>
             </div>
         
         <nav class="post-nav"><a class="prev" href="/2019/07/30/伊留申设计局Trie项目总结/">

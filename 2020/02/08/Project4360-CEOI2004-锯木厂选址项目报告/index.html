@@ -141,11 +141,11 @@
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>先求出距离的后缀和d数组,树重量的前缀和s,因为是从上到下运,所以用上面的重量和乘以下面的距离和,然后求出如果不修工厂需要的花费总和sum.</p>
 <p>考虑一个$O(n^2)$的dp,$f_i$表示第2个工厂修在i号位置时的最优解,向前枚举第1个工厂,得到如下方程:</p>
 <blockquote>
-<p>$f<em>i = sum - s</em>{j}d<em>{j} - d</em>{i}(s_i-s_j)$</p>
+<p>$f_i = sum - s_{j}d_{j} - d_{i}(s_i-s_j)$</p>
 </blockquote>
 <p>用另一种方式来考虑斜率优化,设在i点的转移时,用k转移比用j转移优秀,即:</p>
 <blockquote>
-<p>$sum - s<em>{k}d</em>{k} - d<em>{i}(s_i-s_k) &lt; sum - s</em>{j}d<em>{j} - d</em>{i}(s_i-s_j)$</p>
+<p>$sum - s_{k}d_{k} - d_{i}(s_i-s_k) &lt; sum - s_{j}d_{j} - d_{i}(s_i-s_j)$</p>
 </blockquote>
 <p>化简得:</p>
 <blockquote>
