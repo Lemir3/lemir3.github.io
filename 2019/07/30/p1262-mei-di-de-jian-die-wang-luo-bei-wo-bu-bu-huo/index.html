@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="P1262_美帝的间谍网络被我部捕获!"><meta name="keywords" content="题解, 图论, Tarjan, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2019/07/30/p1262-mei-di-de-jian-die-wang-luo-bei-wo-bu-bu-huo/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>P1262_美帝的间谍网络被我部捕获! - Lemir3's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">P1262_美帝的间谍网络被我部捕获!
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-07-30
+        </span><span class="post-category">
+            <a href="/categories/图论/">图论</a>
+            <a href="/categories/图论/图论-Tarjan/">图论-Tarjan</a>
+            <a href="/categories/图论/图论-Tarjan/图论-Tarjan-题解/">图论-Tarjan-题解</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>摘要:缩点后用图论方法解决所有点的联通问题.</p>
+<a id="more"></a>
+<p><a href="https://www.luogu.org/problemnew/show/P1262" target="_blank" rel="noopener"><em>题面</em></a></p>
+<p>这道题太神了吧,从昨晚七点半做到今天下午两点.</p>
+<p>我经历了以下折腾(以下内容可跳过):</p>
+<ul>
+<li>一开始想的是用Tarjan缩点,然后以可以被收买的间谍为起点跑最短路,通过路径染色,让一条路径上的点的权值等于起点(也就是可以被收买的美国间谍的编号),然后枚举每一个点,用它对应的路径,累加权值得到答案,如果有点的权值为正无穷,那么就说明有间谍无法收买,再扫一遍染色数组找出编号最小的点输出NO.</li>
+</ul>
+<p>这种方式貌似可以,但是在跑最短路的时候,松弛操作会把权值更小的路径更新进来,但是这条最短路可能是无法确保跑向权值更大的点的前缀点的,所以说会导致权值反而更大.这种方法最高得了52分.</p>
+<p>比如下面这张图:</p>
+<p><img src="https://i.loli.net/2019/06/27/5d1475c97647d90711.png" alt="P1262_美帝的间谍网络被我部捕获!配图1.png"></p>
+<p>1,2,3,4号点明显是个强联通分量,收买这个分量的代价为10.</p>
+<p>5号点也是一个强连通分量,收买它的代价为20.</p>
+<p>该图只有从5号点开始,才可以遍历完所有的点,总代价为20.</p>
+<p>但是在跑最短路时,进入缩过点后的1,2,3,4节点后,会把这个点的权值松弛为10,但是这个10是无法跑完整个图的,这也导致总代价变为了30;</p>
+<ul>
+<li><p>然后我甚至想缩点之后跑一边最小生成树,但是算了下这样做会超时.</p>
+</li>
+<li><p>之后我又想好了好久,和<a href="https://www.cnblogs.com/zsx6/" target="_blank" rel="noopener"><em>zxs</em></a>大佬在中午恰饭的时候交流了下这道题,才想出来可以记录下所有入度为0的点,然后累加这些点的权值.这是因为入度为0的点是一定要被收买的,不然就无法遍历完全图,如果有间谍点无法被收买而且无法被其他间谍告发,就输出NO.</p>
+</li>
+</ul>
+<p>还有一些细节在代码里解释罢,各位在阅读我的变量名时只用看下划线后的部分.</p>
+<p><strong>代码</strong>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">&#125;e[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> OddToThePeoplesVolunteerArmy_n,GreatSoviet_p,TheSovietUnion_CntSize,PeoplesRupublic_TimeCnt,YpaForOurGreatMotherland_r,TheDefenderOfMoscow_size,TheInternationalMustCometrue_ans;</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">10010</span>],dfn[<span class="number">10010</span>],low[<span class="number">10010</span>],indu[<span class="number">10010</span>],dis[<span class="number">10010</span>],color[<span class="number">10010</span>],Nodedis[<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">memset</span>(Nodedis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(Nodedis));</span><br><span class="line">    <span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dis));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;OddToThePeoplesVolunteerArmy_n,&amp;GreatSoviet_p);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=GreatSoviet_p;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> id,USAIsRubbish;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;id,&amp;USAIsRubbish);</span><br><span class="line">        dis[id]=USAIsRubbish;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;YpaForOurGreatMotherland_r);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=YpaForOurGreatMotherland_r;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> father,son;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;father,&amp;son);</span><br><span class="line">        EdgeAdd(father,son);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=OddToThePeoplesVolunteerArmy_n;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dfn[_]==<span class="number">0</span>&amp;&amp;dis[_]!=<span class="number">0x3f3f3f3f</span>)<span class="comment">//把可以收买的美国间谍进入Tarjan缩点,这样缩出来的点才能够被遍历.</span></span><br><span class="line">        &#123;</span><br><span class="line">            Tarjan(_);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=OddToThePeoplesVolunteerArmy_n;_++)<span class="comment">//缩完点后如果存在无法被收买,又无法被其它间谍指控的点,就说明无法收买所有间谍.</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dfn[_]==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"NO\n%d\n"</span>,_);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=OddToThePeoplesVolunteerArmy_n;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> __=head[_];__!=<span class="number">-1</span>;__=e[__].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> to=e[__].to;</span><br><span class="line">            <span class="keyword">if</span>(color[_]!=color[to])</span><br><span class="line">            &#123;</span><br><span class="line">                indu[color[to]]++;<span class="comment">//统计入度.</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=TheSovietUnion_CntSize;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(indu[_]==<span class="number">0</span>)<span class="comment">//累加必须收买的间谍的代价.</span></span><br><span class="line">        &#123;</span><br><span class="line">            TheInternationalMustCometrue_ans+=Nodedis[_];</span><br><span class="line"><span class="comment">//            printf("Nodedis:%d\n",Nodedis[_]);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"YES\n%d\n"</span>,TheInternationalMustCometrue_ans);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++TheDefenderOfMoscow_size].to=to;</span><br><span class="line">    e[TheDefenderOfMoscow_size].next=head[from];</span><br><span class="line">    head[from]=TheDefenderOfMoscow_size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> FuckTrump_from)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dfn[FuckTrump_from]=low[FuckTrump_from]=++PeoplesRupublic_TimeCnt;</span><br><span class="line">    s.push(FuckTrump_from);</span><br><span class="line">    flag[FuckTrump_from]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=head[FuckTrump_from];_!=<span class="number">-1</span>;_=e[_].next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> to=e[_].to;</span><br><span class="line">        <span class="keyword">if</span>(dfn[to]==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Tarjan(to);</span><br><span class="line">            low[FuckTrump_from]=min(low[FuckTrump_from],low[to]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(flag[to]==<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            low[FuckTrump_from]=min(low[FuckTrump_from],dfn[to]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dfn[FuckTrump_from]==low[FuckTrump_from])</span><br><span class="line">    &#123;</span><br><span class="line">        TheSovietUnion_CntSize++;</span><br><span class="line">        <span class="keyword">while</span>(!s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> RedAmryIsTheStrongest_temp=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            flag[RedAmryIsTheStrongest_temp]=<span class="literal">false</span>;</span><br><span class="line">            color[RedAmryIsTheStrongest_temp]=TheSovietUnion_CntSize;</span><br><span class="line">            Nodedis[TheSovietUnion_CntSize]=min(Nodedis[TheSovietUnion_CntSize],dis[RedAmryIsTheStrongest_temp]);<span class="comment">//缩点后的点的代价为原来的环的代价中最小的那个代价.</span></span><br><span class="line">            color[RedAmryIsTheStrongest_temp]=TheSovietUnion_CntSize;<span class="comment">//染色.</span></span><br><span class="line">            <span class="keyword">if</span>(RedAmryIsTheStrongest_temp==FuckTrump_from)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2019/07/30/p1262-mei-di-de-jian-die-wang-luo-bei-wo-bu-bu-huo/">https://www.lemir3.red/2019/07/30/p1262-mei-di-de-jian-die-wang-luo-bei-wo-bu-bu-huo/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/题解/">题解</a>
+            <a href="/tags/图论/">图论</a>
+            <a href="/tags/Tarjan/">Tarjan</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/30/p3627-apio2009-te-lang-pu-qiang-lue-zhao-xian-de-ji-hua-bei-wo-jun-fen-sui/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">P3627_[APIO2009]特朗普抢掠朝鲜的计划被我军粉碎!</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/07/30/ba-li-gong-she-she-yuan-zao-chuan-han-project1129-yan-zhi-cheng-gong/">
+        <span class="next-text nav-default">巴黎公社社员造船厂Project1129研制成功</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+<script src="\js\APlayer.min.js"></script>
+<div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+<script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>

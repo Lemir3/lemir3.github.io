@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="P2176路障与P1186玛丽卡与P1491集合位置全面胜利"><meta name="keywords" content="题解, 图论, 最短路, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2019/07/30/p2176-lu-zhang-yu-p1186-ma-li-qia-yu-p1491-ji-he-wei-zhi-quan-mian-sheng-li/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>P2176路障与P1186玛丽卡与P1491集合位置全面胜利 - Lemir3's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">P2176路障与P1186玛丽卡与P1491集合位置全面胜利
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-07-30
+        </span><span class="post-category">
+            <a href="/categories/图论/">图论</a>
+            <a href="/categories/图论/图论-最短路/">图论-最短路</a>
+            <a href="/categories/图论/图论-最短路/图论-最短路-题解/">图论-最短路-题解</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>摘要:有边变动的最短路</p>
+<a id="more"></a>
+<p><a href="https://www.luogu.org/problemnew/show/P2176" target="_blank" rel="noopener"><em>P2176 [USACO14FEB]路障Roadblock</em></a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P1186" target="_blank" rel="noopener"><em>P1186 玛丽卡</em></a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P1491" target="_blank" rel="noopener"><em>P1491 集合位置</em></a></p>
+<p><del>怎么又做到三倍经验,五年计划都超额完成了</del></p>
+<p>这几道题像极了.</p>
+<p>想起来不难吧,要让边改变之后与原来的最短路差值最大,就把最短路上的边改了呗.</p>
+<p>用一个队列来记录最短路上的边,然后枚举这个队列里的元素,依次改变,刷出最大值.</p>
+<p>代码有点不好写,这次我加上注释了.</p>
+<p><del>不要问我为什么变量名怎么这么长,最近沉迷代码补全.</del></p>
+<p>P2176的代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">priority_queue&lt; pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;,<span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt;,greater&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt; &gt;q;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;the_shortest_path;<span class="comment">//保存下来最短路的路径</span></span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;before[<span class="number">110</span>];<span class="comment">//用来存每个点的前驱边</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> next,to,val,from;</span><br><span class="line">&#125;e[<span class="number">10010</span>];<span class="comment">//两倍开点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,size,mina=<span class="number">0x3f3f3f3f</span>,minb=<span class="number">0x3f3f3f3f</span>,ans=<span class="number">-0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">110</span>],dis[<span class="number">110</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">edge_add</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijstra</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,v;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;a,&amp;b,&amp;v);</span><br><span class="line">    edge_add(a,b,v);</span><br><span class="line">    edge_add(b,a,v);</span><br><span class="line">  &#125;</span><br><span class="line">  Dijstra(<span class="number">1</span>);</span><br><span class="line">  mina=dis[n];</span><br><span class="line">  the_shortest_path=before[n];</span><br><span class="line">  <span class="keyword">while</span>(!the_shortest_path.empty())</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">110</span>;i++)<span class="keyword">while</span>(before[i].size()!=<span class="number">0</span>)before[i].pop();</span><br><span class="line">    <span class="keyword">int</span> straw=the_shortest_path.front(),oppsite;</span><br><span class="line">    the_shortest_path.pop();</span><br><span class="line">    <span class="keyword">if</span>(e[straw].to==e[straw+<span class="number">1</span>].from)oppsite=straw+<span class="number">1</span>;<span class="comment">//因为是双向的边,就要这样把两倍都改了,这也是为什么之前的结构体里要写from</span></span><br><span class="line">    <span class="keyword">else</span> oppsite=straw<span class="number">-1</span>;</span><br><span class="line">    e[straw].val=e[straw].val+e[straw].val;</span><br><span class="line">    e[oppsite].val=e[oppsite].val+e[oppsite].val;</span><br><span class="line">    Dijstra(<span class="number">1</span>);</span><br><span class="line">    minb=dis[n];</span><br><span class="line">    <span class="keyword">if</span>(ans&lt;minb-mina)ans=minb-mina;</span><br><span class="line">    e[straw].val/=<span class="number">2</span>;</span><br><span class="line">    e[oppsite].val/=<span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">edge_add</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to,<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  e[++size].to=to;</span><br><span class="line">  e[size].from=from;</span><br><span class="line">  e[size].val=val;</span><br><span class="line">  e[size].next=head[from];</span><br><span class="line">  head[from]=size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijstra</span><span class="params">(<span class="keyword">int</span> start)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dis));</span><br><span class="line">  <span class="built_in">memset</span>(flag,<span class="literal">false</span>,<span class="keyword">sizeof</span>(flag));</span><br><span class="line">  dis[start]=<span class="number">0</span>;</span><br><span class="line">  q.push(make_pair(dis[start],start));</span><br><span class="line">  <span class="keyword">while</span>(!q.empty())</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> node=q.top().second;</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span>(flag[node]==<span class="literal">true</span>)<span class="keyword">continue</span>;</span><br><span class="line">    flag[node]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=head[node];i!=<span class="number">-1</span>;i=e[i].next)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">int</span> to=e[i].to;</span><br><span class="line">      <span class="keyword">int</span> val=e[i].val;</span><br><span class="line">      <span class="keyword">if</span>(dis[to]&gt;dis[node]+val)</span><br><span class="line">      &#123;</span><br><span class="line">        dis[to]=dis[node]+val;</span><br><span class="line">        before[to]=before[node];<span class="comment">//继承node的前驱</span></span><br><span class="line">        before[to].push(i);<span class="comment">//再加上这一次的边</span></span><br><span class="line">        q.push(make_pair(dis[to],to));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2019/07/30/p2176-lu-zhang-yu-p1186-ma-li-qia-yu-p1491-ji-he-wei-zhi-quan-mian-sheng-li/">https://www.lemir3.red/2019/07/30/p2176-lu-zhang-yu-p1186-ma-li-qia-yu-p1491-ji-he-wei-zhi-quan-mian-sheng-li/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/题解/">题解</a>
+            <a href="/tags/图论/">图论</a>
+            <a href="/tags/最短路/">最短路</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/30/guan-yu-shu-xing-dp-de-gong-zuo-bao-gao/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">关于树形DP的工作报告</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/07/30/p3275-scoi2011-tang-guo-zai-qu-tang-guo-fen-fa-cheng-gong/">
+        <span class="next-text nav-default">P3275_[SCOI2011]糖果灾区糖果分发成功</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+<script src="\js\APlayer.min.js"></script>
+<div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+<script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>

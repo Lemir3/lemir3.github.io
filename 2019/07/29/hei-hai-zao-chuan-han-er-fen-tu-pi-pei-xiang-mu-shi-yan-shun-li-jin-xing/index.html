@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="黑海造船厂二分图匹配项目试验顺利进行"><meta name="keywords" content="图论, 二分图, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2019/07/29/hei-hai-zao-chuan-han-er-fen-tu-pi-pei-xiang-mu-shi-yan-shun-li-jin-xing/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>黑海造船厂二分图匹配项目试验顺利进行 - Lemir3's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">黑海造船厂二分图匹配项目试验顺利进行
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-07-29
+        </span><span class="post-category">
+            <a href="/categories/图论/">图论</a>
+            <a href="/categories/图论/图论-二分图/">图论-二分图</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是二分图"><span class="toc-text">什么是二分图?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎样判定二分图"><span class="toc-text">怎样判定二分图?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二分图最大匹配"><span class="toc-text">二分图最大匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#匈牙利算法-增广路算法"><span class="toc-text">匈牙利算法(增广路算法)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主体思想"><span class="toc-text">主体思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码:</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>摘要:二分图匹配学习笔记</p>
+<a id="more"></a>
+<h1 id="什么是二分图"><a href="#什么是二分图" class="headerlink" title="什么是二分图?"></a>什么是二分图?</h1><p><em>以下内容摘自百度百科</em></p>
+<blockquote>
+<p>二分图又称作二部图，是图论中的一种特殊模型。 设G=(V,E)是一个无向图，如果顶点V可分割为两个互不相交的子集(A,B)，并且图中的每条边（i，j）所关联的两个顶点i和j分别属于这两个不同的顶点集(i in A,j in B)，则称图G为一个二分图。</p>
+</blockquote>
+<p><img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=dbf8c742e050352ab161220e6b789ccf/7a899e510fb30f24a3ac24f6c195d143ad4b0315.jpg" alt="配图1"></p>
+<h1 id="怎样判定二分图"><a href="#怎样判定二分图" class="headerlink" title="怎样判定二分图?"></a>怎样判定二分图?</h1><p><em>以下内容摘自《算法竞赛进阶指南》</em></p>
+<blockquote>
+<p>存在如下定理:</p>
+<blockquote>
+<p>一张无向图是二分图,当且仅当图中不存在奇环(长度为奇数的环).</p>
+</blockquote>
+<p>根据该定理,同志们可以以染色法进行二分图的判定.主体思想为:尝试用黑白两种颜色标记图中的结点,当一个结点被标记后,它的所有相邻结点应该被标记与它相反的颜色.若标记过程中产生冲突,则说明图中存在奇环.二分图染色一般基于DFS实现,时间复杂度为$O(n+m)$,伪代码如下:</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> color)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    赋值v[x] &lt;-- color</span><br><span class="line">    对于与x相连的每条无向边(x,y)</span><br><span class="line">    <span class="keyword">if</span> v[y]=<span class="number">0</span> then</span><br><span class="line">        dfs(y,<span class="number">3</span>-color)</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> v[y]=color then</span><br><span class="line">        判定无向图不是二分图,算法结束</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在主函数中</span><br><span class="line">    <span class="keyword">for</span> i &lt;-- <span class="number">1</span> to n</span><br><span class="line">        <span class="keyword">if</span>(v[i]=<span class="number">0</span>)then dfs(i,<span class="number">1</span>)</span><br><span class="line">    判定无向图是二分图</span><br></pre></td></tr></table></figure>
+<h1 id="二分图最大匹配"><a href="#二分图最大匹配" class="headerlink" title="二分图最大匹配"></a>二分图最大匹配</h1><p><em>以下内容摘自《算法竞赛进阶指南》</em></p>
+<blockquote>
+<p>“任意两条边没有公共端点”的边的集合被称为图的一组匹配.在二分图中,包含边数最多的一组匹配被称为二分图的最大匹配.</p>
+<p>对于任意一组匹配$S$($S$是边集),属于$S$的边被称为”匹配边”,不属于$S$的边被称为”非匹配边”.匹配边的端点被称为”匹配点”,其他结点被称为”匹配点”.如果二分图中存在一条连接两个非匹配点的路径$path$,使得非匹配边与匹配边在$path$上交错出现,那么称$path$是匹配$S$的增广路,也称交错路.</p>
+<p>有如下定理:</p>
+<blockquote>
+<p>二分图的一组匹配$S$是最大匹配,当且仅当图中不存在$S$的增广路.</p>
+</blockquote>
+</blockquote>
+<p>配图如下:</p>
+<p><img src="https://i.loli.net/2019/07/01/5d1981bb0de1144262.png" alt="配图2.png"></p>
+<p><img src="https://i.loli.net/2019/07/01/5d1981c16f34e79126.png" alt="配图3.png"></p>
+<p><img src="https://i.loli.net/2019/07/01/5d1981c18400350800.png" alt="配图4.png"></p>
+<p>如图,图2,图3(请不要联想到图波耶夫设计局)中红色的边就是图1的匹配,图3中红色的边为图1的最大匹配.</p>
+<h2 id="匈牙利算法-增广路算法"><a href="#匈牙利算法-增广路算法" class="headerlink" title="匈牙利算法(增广路算法)"></a>匈牙利算法(增广路算法)</h2><p>匈牙利算法,又称增广路算法,用于计算二分图最大匹配.</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>独立团战士们要发枪,每个战士都有自己想要的枪.关系如下:</p>
+<p><img src="https://i.loli.net/2019/07/01/5d198eed1c5b339808.png" alt="配图5.png"></p>
+<p>开始分配:</p>
+<p><img src="https://i.loli.net/2019/07/01/5d198eedaa4fc86330.png" alt="配图6.png"></p>
+<p>政委想要捷克式轻机枪,于是把捷克式轻机枪分给了政委.</p>
+<p><img src="https://i.loli.net/2019/07/01/5d198eed9946118360.png" alt="配图7.png"></p>
+<p>团长这时说道:”好你他娘的赵政委,当几天政委还蹭鼻子上脸了是吧?老子就要用捷克式轻机枪.”</p>
+<p>政委想了想,反正咱百里赵刚用汉阳造也顺手,顺手拿来了汉阳造,轻机枪给了团长.</p>
+<p><img src="https://i.loli.net/2019/07/01/5d198eed46c0b65755.png" alt="配图8.png"></p>
+<p>但是和尚也想用这把汉阳造,于是找政委商量.</p>
+<p>政委:”关心小同志是咱当政委的职责,要不这样,这把汉阳造就拿给你用,我去找团长商量用轻机枪.”</p>
+<p>团长:”怎么?又打老子的轻机枪的主意?我看你和老子还有几天交情,轻机枪给你用,行了吧,读书人还真他娘的不讲理.这几天闲着没事,二营的那台意大利炮,老子拿来玩几天.”</p>
+<p>于是团长从二营拖来了意大利炮,政委用上了轻机枪,和尚拿到了汉阳造.</p>
+<p><img src="https://i.loli.net/2019/07/01/5d198eed5b56786382.png" alt="配图9.png"></p>
+<p>二营长这就不乐意了,我堂堂张大<del>喵</del>彪,好不容易缴获的意大利炮,哪是个团长随随便便就能拿来玩的?</p>
+<p>于是张大<del>喵</del>彪帽子一摔,跑去找到了团长.</p>
+<p>团长:”去你他娘的二营长,老子官比你大,用你的炮怎么啦?老子把炮给你了老子用什么打仗?你让那小鬼子自个往我嘴里钻?我看你打仗天天摔帽子,那顶上次去边区领多了一顶帽子,你给老子拿去用.”</p>
+<p>于是张大<del>喵</del>彪<del>又</del>分到了一顶帽子.</p>
+<h3 id="主体思想"><a href="#主体思想" class="headerlink" title="主体思想"></a>主体思想</h3><p>上面的过程就是一个标准的匈牙利算法.</p>
+<p>匈牙利算法的思想就是寻找增广路,把增广路上的匹配状态全部取反,得到一个更大的匹配.</p>
+<p>具体来说的话,可以以上面的第二幅图举例.</p>
+<p>“李团长 —&gt; 捷克式轻机枪 —&gt; 赵政委 —&gt; 汉阳造”,这是匹配”赵政委 —&gt; 捷克式轻机枪”的一条增广路,其中”李团长”和”汉阳造”为增广路连接的两个非匹配点.同志们把这条增广路上的所有边的匹配状态取反,原来政委拿到了轻机枪,取反之后变为没有拿到,原来团长没有拿到轻机枪,取反后拿到了轻机枪,原来政委没有拿到汉阳造,取反后拿到了汉阳造.</p>
+<p>这样就得到了一个更大的匹配.</p>
+<p>我们重复第二步,直到图中不存在增广路,就得到了最大匹配.</p>
+<p>因为该算法最多遍历整个二分图一次,所以时间复杂度为$O(nm)$.</p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><ol>
+<li><p>设$S$为空集,即所有的边都是非匹配边.</p>
+</li>
+<li><p>寻找增广路,把路径上的边全部取反,得到一个更大的匹配$S’$</p>
+</li>
+<li><p>重复第二步,直到图中不存在增广路.</p>
+</li>
+</ol>
+<p>关于具体怎么寻找增广路,怎么给路径取反,我将在代码中解释.</p>
+<p><a href="https://www.luogu.org/problemnew/show/P3386" target="_blank" rel="noopener"><em>模板题</em></a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">&#125;e[<span class="number">1000010</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,e_,size,ans;</span><br><span class="line"><span class="keyword">int</span> head[<span class="number">10010</span>],match[<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Hungary</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;e_);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=e_;_++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> from,to;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;from,&amp;to);</span><br><span class="line">        <span class="keyword">if</span>(from&gt;n||to&gt;m||from&gt;m||to&gt;n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        EdgeAdd(from,to);</span><br><span class="line">    &#125;</span><br><span class="line">    Hungary();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[++size].to=to;</span><br><span class="line">    e[size].next=head[from];</span><br><span class="line">    head[from]=size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Hungary</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=<span class="number">1</span>;_&lt;=n;_++)<span class="comment">//枚举左集中的结点</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(flag,<span class="literal">false</span>,<span class="keyword">sizeof</span>(flag));</span><br><span class="line">        <span class="keyword">if</span>(find(_)==<span class="literal">true</span>)<span class="comment">//存在一条增广路</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> from)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> _=head[from];_!=<span class="number">-1</span>;_=e[_].next)<span class="comment">//遍历该结点的路径</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> to=e[_].to;</span><br><span class="line">        <span class="keyword">if</span>(flag[to]==<span class="literal">false</span>)<span class="comment">//flag数组防止往回走</span></span><br><span class="line">        &#123;</span><br><span class="line">            flag[to]=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(match[to]==<span class="number">0</span>||find(match[to])==<span class="literal">true</span>)</span><br><span class="line"><span class="comment">/*这里有两种情况,一种是右集中的点没有被选,那么它们俩构成长度为1的增广路.</span></span><br><span class="line"><span class="comment">另一种是右集中的点已经被选了,但是往下递归可以发现选它的点可以有其他的选择,这样构成了一条两端都是非匹配点的路径,即增广路.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">            &#123;</span><br><span class="line">                match[to]=from;<span class="comment">//更改匹配</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2019/07/29/hei-hai-zao-chuan-han-er-fen-tu-pi-pei-xiang-mu-shi-yan-shun-li-jin-xing/">https://www.lemir3.red/2019/07/29/hei-hai-zao-chuan-han-er-fen-tu-pi-pei-xiang-mu-shi-yan-shun-li-jin-xing/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/图论/">图论</a>
+            <a href="/tags/二分图/">二分图</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/07/29/di-yi-ge-wu-nian-ji-hua/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">第一个五年计划</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/07/28/duo-guo-shou-nao-yuan-zhuo-ju-can-bao-gao/">
+        <span class="next-text nav-default">多国首脑圆桌聚餐报告</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+<script src="\js\APlayer.min.js"></script>
+<div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+<script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>
