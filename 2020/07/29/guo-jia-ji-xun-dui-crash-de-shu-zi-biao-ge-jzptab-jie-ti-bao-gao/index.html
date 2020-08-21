@@ -151,7 +151,7 @@
 <script type="math/tex; mode=display">
 sum(n,m)=\sum_{i=1}^{n}\sum_{j=1}^{m} \varepsilon(\gcd(i,j))\cdot i\cdot j
 \\
-=\sum_{i=1}^{n}\sum_{j=1}^{m}\sum_{d|n}^{n}\mu(d)\cdot i \cdot j
+=\sum_{i=1}^{n}\sum_{j=1}^{m}\sum_{d|\gcd(i,j)}^{n}\mu(d)\cdot i \cdot j
 \\
 =\sum_{d=1}^{n}\sum_{d|i}^{n}\sum_{d|j}^{m}\mu(d)\cdot i \cdot j</script><p>设$i=i’ \cdot d$,$j=j’ \cdot d$:</p>
 <script type="math/tex; mode=display">
