@@ -133,12 +133,14 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数论函数"><span class="toc-text">数论函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#积性函数"><span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#狄利克雷卷积"><span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性筛-欧拉筛"><span class="toc-text">线性筛(欧拉筛)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#质数"><span class="toc-text">质数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#莫比乌斯函数"><span class="toc-text">莫比乌斯函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#欧拉函数"><span class="toc-text">欧拉函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#杜教筛"><span class="toc-text">杜教筛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例1"><span class="toc-text">例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例2"><span class="toc-text">例2</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数论函数"><span class="toc-text">数论函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#积性函数"><span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#狄利克雷卷积"><span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例"><span class="toc-text">例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性筛-欧拉筛"><span class="toc-text">线性筛(欧拉筛)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#质数"><span class="toc-text">质数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#莫比乌斯函数"><span class="toc-text">莫比乌斯函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#欧拉函数"><span class="toc-text">欧拉函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#杜教筛"><span class="toc-text">杜教筛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例1"><span class="toc-text">例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例2"><span class="toc-text">例2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#莫比乌斯反演"><span class="toc-text">莫比乌斯反演</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例-1"><span class="toc-text">例</span></a></li></ol></li></ol></li></ol>
     </div>
   </div><div class="post-content"><p>摘要:定义在正整数域上的函数</p>
 <a id="more"></a>
-<h1 id="数论函数"><a href="#数论函数" class="headerlink" title="数论函数"></a>数论函数</h1><p>自变数$n$在某个整数集合中取值,因变数$y$取复数值得函数$y=f(n)$称为<strong>数论函数</strong>或<strong>算术函数</strong>,在不说明定义域时默认为$N$.</p>
-<h2 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h2><p>对于定义域为$D$得数论函数$f(n)$,如果满足:</p>
+<h1 id="数论函数"><a href="#数论函数" class="headerlink" title="数论函数"></a>数论函数</h1><blockquote>
+<p>  自变数$n$在某个整数集合中取值,因变数$y$取复数值的函数$y=f(n)$称为<strong>数论函数</strong>或<strong>算术函数</strong>,在不说明定义域时默认为$N$.</p>
+</blockquote>
+<h2 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h2><p>对于定义域为$D$的数论函数$f(n)$,如果满足:</p>
 <script type="math/tex; mode=display">
 f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函数.</p>
 <p>如果对于任意$(a,b)\neq1$也满足$f(ab)=f(a)f(b)$,则称数论函数$f(n)$为完全积性函数.</p>
@@ -149,19 +151,21 @@ f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函�
 <li>恒等函数$id(n)=n$</li>
 <li>除数函数$d(n)=\sum_{i|n}^{n}1$</li>
 <li>除数和函数$\sigma(n)=\sum_{i|n}^{n}i$</li>
-<li>欧拉函数$\varphi(n)=\sum_{(i,n)=1}^n1$</li>
-<li>莫比乌斯函数$\mu(n)=\begin{cases}1&amp;n=1\(-1)^x&amp;n=p_1p_2\cdots p_x\0&amp;otherwise \end{cases}$</li>
+<li>欧拉函数$\varphi(n)=\sum_{i=1}^n[(i,n)=1]$</li>
+<li>莫比乌斯函数$\mu(n)=\begin{cases}1 &amp; \ n=1 \\ (-1)^x &amp; \ n=p_1p_2\cdots p_x \\ 0 &amp; \ otherwise \end{cases}$</li>
 </ul>
 <h2 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h2><p>两个数论函数的狄利克雷卷积定义为:</p>
+<blockquote>
 <script type="math/tex; mode=display">
-(f*g)(n)=\sum_{d|n}^{n}f(d)g(\frac{n}{d})</script><p>狄利克雷卷积满足常见的运算律:</p>
+(f*g)(n)=\sum_{d|n}^{n}f(d)g(\frac{n}{d})</script></blockquote>
+<p>狄利克雷卷积满足常见的运算律:</p>
 <ul>
-<li>交换律$f<em>g=g</em>f$</li>
-<li>结合律$(f<em>g)</em>h=f<em>(g</em>h)$</li>
-<li>分配律$f<em>(g+h)=f</em>g+f*h$</li>
+<li>$f*g=g*f$</li>
+<li>$(f*g)*h=f*(g*h)$</li>
+<li>$f*(g+h)=f*g+f*h$</li>
 </ul>
 <p>并且有$\epsilon$作为狄利克雷卷积的单位元,对于任意数论函数$f(n)$有$f(n)*\epsilon=f(n)$.</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul>
+<h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><ul>
 <li>$\mu*1=\epsilon$</li>
 <li>$\varphi*1=id$</li>
 <li>$1*1=d$</li>
@@ -172,7 +176,26 @@ f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函�
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i(<span class="number">2</span>);i&lt;maxn;++i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(!vis[i])&#123;prime[++PrimeCnt]=i,vis[i]=<span class="literal">true</span>;&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j(<span class="number">1</span>);j&lt;=PrimeCnt;++j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(prime[j]*i&gt;maxn)<span class="keyword">break</span>;</span><br><span class="line">		vis[prime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h3><p>利用这种思路,结合$\mu$的性质即可筛出$maxn$范围内的$\mu$:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i(<span class="number">2</span>);i&lt;maxn;++i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(!vis[i])&#123;prime[++PrimeCnt]=i,mu[i]=<span class="number">-1</span>,vis[i]=<span class="literal">true</span>;&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j(<span class="number">1</span>);j&lt;=PrimeCnt;++j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(prime[j]*i&gt;maxn)<span class="keyword">break</span>;</span><br><span class="line">		vis[prime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(i%prime[j])mu[i*prime[j]]=-mu[i];</span><br><span class="line">		<span class="keyword">else</span> &#123;mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h2 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h2><p>对于数论函数$f$,求$S(n)=\sum_{i=1}^{n}f(i)$.</p>
+<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>显然$n$为质数时,$\varphi(n)=n-1$.</p>
+<p>根据唯一分解定理可以将整数分解为质数幂次的乘积,有一结论,若$n=\prod_{i=1}^{n}p_i^{k_i}$,那么$\varphi(n)=n\times\prod_{i=1}^{s}\frac{p_i-1}{p_i}$.</p>
+<p>考虑线性筛的过程,设一个数$n$的最小质因子为$p_1$,那么它在线性筛时会被$p_1$筛去,设$n’\times p_1=n$.</p>
+<p>若$n’~mod~p_1=0$,那么$n’$包含了$n$的所有质因子,于是有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi(n)&=n\times \prod_{i=1}^{s}\frac{p_i-1}{p_i}
+\\
+&=p_1\times n'\times \prod_{i=1}^{s}\frac{p_i-1}{p_i}
+\\
+&=p_1\times \varphi(n')
+\end{aligned}</script><p>若$n’~mod~p_1\neq0$,那么$n’$与$p_1$互质,根据欧拉函数的积性有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varphi(n)&=\varphi(p_1)\times\varphi(n')
+\\
+&=(p_1-1)\times\varphi(n')
+\end{aligned}</script><p>代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i(<span class="number">2</span>);i&lt;maxn;++i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(!vis[i])&#123;prime[++PrimeCnt]=i,phi[i]=i<span class="number">-1</span>,vis[i]=<span class="literal">true</span>;&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j(<span class="number">1</span>);j&lt;=PrimeCnt;++j)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(prime[j]*i&gt;maxn)<span class="keyword">break</span>;</span><br><span class="line">		vis[prime[j]*i]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(i%prime[j])phi[i*prime[j]]=phi[i]*(prime[j]<span class="number">-1</span>);</span><br><span class="line">		<span class="keyword">else</span> &#123;phi[i*prime[j]]=phi[i]*prime[j];<span class="keyword">break</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h2><p>对于数论函数$f$,求$S(n)=\sum_{i=1}^{n}f(i)$.</p>
 <p>考虑构造$S(n)$与$S(\lfloor \frac{i}{n} \rfloor)$的关系.</p>
 <p>对于任意数论函数$f$,有:</p>
 <script type="math/tex; mode=display">
@@ -185,8 +208,10 @@ f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函�
 \\
 &=\sum_{i=1}^{n}g(i)S(\lfloor \frac{n}{i} \rfloor)
 \end{aligned}</script><p>得到杜教筛的核心式子:</p>
+<blockquote>
 <script type="math/tex; mode=display">
-g(1)S(n)=\sum_{i=1}^{n}(f*g)(i)-\sum_{i=2}^{n}g(i)S(\lfloor \frac{n}{i} \rfloor)</script><p>只要能找到合适的数论函数$g$,结合数论分块就可以利用递归快速计算$S(n)$.</p>
+g(1)S(n)=\sum_{i=1}^{n}(f*g)(i)-\sum_{i=2}^{n}g(i)S(\lfloor \frac{n}{i} \rfloor)</script></blockquote>
+<p>只要能找到合适的数论函数$g$,结合数论分块就可以利用递归快速计算$S(n)$.</p>
 <p>复杂度$O(n^{\frac{3}{4}})$,线性筛预处理前$n^{\frac{2}{3}}$项的前缀和能做到$O(n^{\frac{2}{3}})$</p>
 <h3 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h3><p>计算$S(n)=\sum_{i=1}^{n}\mu(i)$:</p>
 <blockquote>
@@ -219,6 +244,41 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
 \end{aligned}</script></blockquote>
 <p>与上一例同理:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SumPhi</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;big)<span class="keyword">return</span> sphi[x];</span><br><span class="line">	<span class="keyword">if</span>(MemPhi[x])<span class="keyword">return</span> MemPhi[x];</span><br><span class="line">	<span class="keyword">int</span> ret=x*(x+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i(<span class="number">2</span>),j;i&lt;=x;i=j+<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		j=x/(x/i);</span><br><span class="line">		ret-=(SumPhi(x/i))*(j-i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MemPhi[x]=ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>反演方法是一种求解序列的方法,这种方法可以把一个序列用另一个序列表示出来.</p>
+<p>也就是根据两个序列${f(n)}$和${g(n)}$所满足的特殊关系,给出它们的相互表示方法.</p>
+<p>其中莫比乌斯反演是在数论函数中常用的反演方法.</p>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><blockquote>
+<p>  对于数论函数$f(n)$与$g(n)$,若$f=g*1$,那么$g=f*\mu$</p>
+</blockquote>
+<p>证明:</p>
+<blockquote>
+<p>  利用狄利克雷卷积的性质:</p>
+<script type="math/tex; mode=display">
+  f=g*1
+  \\
+  f*\mu=g*1*\mu
+  \\
+  f*\mu=g*\epsilon=g</script></blockquote>
+<h3 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h3><p>计算$\sum_{i=1}^{n}\sum_{j=1}^{n}[(i,j)=1]$.</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\text{利用}\mu*1=\epsilon\text{进行反演:}
+\\
+\begin{aligned}
+\sum_{i=1}^{n}\sum_{j=1}^{n}[(i,j)=1]
+\\
+&=\sum_{i=1}^{n}\sum_{j=1}^{n}\epsilon(\gcd(i,j))
+\\
+&=\sum_{i=1}^{n}\sum_{j=1}^{n}\sum_{d|\gcd(i,j)}\mu(d)
+\\
+&=\sum_{i=1}^{n}\sum_{j=1}^{n}\sum_{d|i,d|j}\mu(d)
+\\
+&=\sum_{d=1}^{n}\sum_{i=1}^{\lfloor \frac{n}{d} \rfloor}\sum_{j=1}^{\lfloor \frac{n}{d} \rfloor}\mu(d)
+\\
+&=\sum_{d=1}^{n}\mu(d)\cdot \lfloor \frac{n}{d} \rfloor \cdot \lfloor \frac{n}{d} \rfloor
+\end{aligned}</script></blockquote>
+<p>数论分块求解,$pre$为$\mu$的前缀和:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">1</span>,r=<span class="number">0</span>;l&lt;=n;l=r+<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		r=min(a/(a/l),b/(b/l));</span><br><span class="line">		ans+=(pre[r]-pre[l<span class="number">-1</span>])*(a/l)*(b/l);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       </div>
       <div class="post-copyright">
