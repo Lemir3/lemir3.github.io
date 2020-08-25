@@ -212,7 +212,7 @@ f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函�
 <script type="math/tex; mode=display">
 g(1)S(n)=\sum_{i=1}^{n}(f*g)(i)-\sum_{i=2}^{n}g(i)S(\lfloor \frac{n}{i} \rfloor)</script></blockquote>
 <p>只要能找到合适的数论函数$g$,结合数论分块就可以利用递归快速计算$S(n)$.</p>
-<p>复杂度$O(n^{\frac{3}{4}})$,线性筛预处理前$n^{\frac{2}{3}}$项的前缀和能做到$O(n^{\frac{2}{3}})$</p>
+<p>复杂度$O(n^{\frac{3}{4}})$,线性筛预处理前$n^{\frac{2}{3}}$项的前缀和能做到$O(n^{\frac{2}{3}})$.</p>
 <h3 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h3><p>计算$S(n)=\sum_{i=1}^{n}\mu(i)$:</p>
 <blockquote>
 <script type="math/tex; mode=display">
@@ -248,7 +248,7 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
 <p>也就是根据两个序列${f(n)}$和${g(n)}$所满足的特殊关系,给出它们的相互表示方法.</p>
 <p>其中莫比乌斯反演是在数论函数中常用的反演方法.</p>
 <h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><blockquote>
-<p>  对于数论函数$f(n)$与$g(n)$,若$f=g*1$,那么$g=f*\mu$</p>
+<p>  对于数论函数$f(n)$与$g(n)$,若$f=g*1$,那么$g=f*\mu$.</p>
 </blockquote>
 <p>证明:</p>
 <blockquote>
@@ -300,7 +300,12 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
             <a href="/tags/数论/">数论</a>
             </div>
         
-        <nav class="post-nav"><a class="next" href="/2020/08/24/scoi2007-xiu-che-jie-ti-bao-gao/">
+        <nav class="post-nav"><a class="prev" href="/2020/08/25/jie-ti-bao-gao-luogu3768-jian-dan-de-shu-xue-ti/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「解题报告」luogu3768简单的数学题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/08/24/scoi2007-xiu-che-jie-ti-bao-gao/">
         <span class="next-text nav-default">[SCOI2007]修车解题报告</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
