@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="数论函数相关"><meta name="keywords" content="数学, 数论, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<meta name="description" content="数论函数相关"><meta name="keywords" content="数学, 数论, 莫比乌斯反演, 杜教筛, Lemir3's blog"><link rel="alternate" href="/default" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
 <link rel="canonical" href="https://www.lemir3.red/2020/08/24/shu-lun-han-shu-xiang-guan/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
@@ -126,6 +126,8 @@
         </span><span class="post-category">
             <a href="/categories/数学/">数学</a>
             <a href="/categories/数学/数学-数论/">数学-数论</a>
+            <a href="/categories/数学/数学-数论/数学-数论-莫比乌斯反演/">数学-数论-莫比乌斯反演</a>
+            <a href="/categories/数学/数学-数论/数学-数论-莫比乌斯反演/数学-数论-杜教筛/">数学-数论-杜教筛</a>
             </span>
         </div>
     </header>
@@ -256,9 +258,11 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
 <script type="math/tex; mode=display">
   f=g*1
   \\
-  f*\mu=g*1*\mu
-  \\
-  f*\mu=g*\epsilon=g</script></blockquote>
+  \begin{aligned}
+  f*\mu&=g*1*\mu
+  \\&=g*\epsilon
+  \\&=g
+  \end{aligned}</script></blockquote>
 <h3 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h3><p>计算$\sum_{i=1}^{n}\sum_{j=1}^{n}[(i,j)=1]$.</p>
 <blockquote>
 <script type="math/tex; mode=display">
@@ -298,6 +302,8 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
         <div class="post-tags">
             <a href="/tags/数学/">数学</a>
             <a href="/tags/数论/">数论</a>
+            <a href="/tags/莫比乌斯反演/">莫比乌斯反演</a>
+            <a href="/tags/杜教筛/">杜教筛</a>
             </div>
         
         <nav class="post-nav"><a class="prev" href="/2020/08/25/jie-ti-bao-gao-luogu3768-jian-dan-de-shu-xue-ti/">
