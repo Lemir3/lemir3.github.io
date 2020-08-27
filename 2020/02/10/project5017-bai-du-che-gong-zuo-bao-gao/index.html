@@ -150,12 +150,12 @@
 <p>发现后面的和式是固定的,考虑使用dp求出前面和式的最小值.</p>
 <p>设$f_i$表示i时刻发车的最小代价,不难得到以下转移方程:</p>
 <blockquote>
-<p>$f_i = min { f_j + (s_i - s_j) * i } \qquad (j \leq i -m或j = 0)$</p>
+<p>$f_i = min \{ f_j + (s_i - s_j) * i \} \qquad (j \leq i -m或j = 0)$</p>
 </blockquote>
 <p>得到答案减去$\sum_{i=1}^{n}t_i$即可.</p>
 <p>然后这个转移显然可以斜率优化,设用k转移i比用j转移i优秀,得到如下式子:</p>
 <blockquote>
-<p>$f_k + (s_i - s_k)<em>i &lt; f_j + (s_i - s_j)</em>i$</p>
+<p>$f_k + (s_i - s_k)*i &lt; f_j + (s_i - s_j)*i$</p>
 </blockquote>
 <p>移项,得:</p>
 <blockquote>

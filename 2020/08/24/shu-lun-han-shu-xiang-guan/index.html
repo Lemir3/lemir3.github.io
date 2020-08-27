@@ -154,7 +154,7 @@ f(ab)=f(a)f(b),(a,b)=1,a,b\in D</script><p>则称数论函数$f(n)$为积性函�
 <li>除数函数$d(n)=\sum_{i|n}^{n}1$</li>
 <li>除数和函数$\sigma(n)=\sum_{i|n}^{n}i$</li>
 <li>欧拉函数$\varphi(n)=\sum_{i=1}^n[(i,n)=1]$</li>
-<li>莫比乌斯函数$\mu(n)=\begin{cases}1 &amp; \ n=1 \\ (-1)^x &amp; \ n=p_1p_2\cdots p_x \\ 0 &amp; \ otherwise \end{cases}$</li>
+<li>莫比乌斯函数$\mu(n)=\begin{cases}1 &amp;  n=1 \\\ (-1)^x &amp;  n=p_1p_2\cdots p_x \\\ 0 &amp;  otherwise \end{cases}$</li>
 </ul>
 <h2 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h2><p>两个数论函数的狄利克雷卷积定义为:</p>
 <blockquote>
@@ -247,7 +247,7 @@ S(n)&=\sum_{i=1}^{n}(\varphi*1)-\sum_{i=2}^{n}S(\lfloor \frac{n}{i} \rfloor)
 <p>与上一例同理:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SumPhi</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;big)<span class="keyword">return</span> sphi[x];</span><br><span class="line">	<span class="keyword">if</span>(MemPhi[x])<span class="keyword">return</span> MemPhi[x];</span><br><span class="line">	<span class="keyword">int</span> ret=x*(x+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i(<span class="number">2</span>),j;i&lt;=x;i=j+<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		j=x/(x/i);</span><br><span class="line">		ret-=(SumPhi(x/i))*(j-i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MemPhi[x]=ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>反演方法是一种求解序列的方法,这种方法可以把一个序列用另一个序列表示出来.</p>
-<p>也就是根据两个序列${f(n)}$和${g(n)}$所满足的特殊关系,给出它们的相互表示方法.</p>
+<p>也就是根据两个序列$\{f(n)\}$和$\{g(n)\}$所满足的特殊关系,给出它们的相互表示方法.</p>
 <p>其中莫比乌斯反演是在数论函数中常用的反演方法.</p>
 <h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><blockquote>
 <p>  对于数论函数$f(n)$与$g(n)$,若$f=g*1$,那么$g=f*\mu$.</p>

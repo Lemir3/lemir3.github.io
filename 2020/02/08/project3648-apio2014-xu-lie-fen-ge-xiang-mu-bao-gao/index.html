@@ -142,7 +142,7 @@
 <p>还是考虑dp,设$f_{i,j}$表示前i个数分j次得到的最大分数.</p>
 <p>那么有(s为前缀和):</p>
 <blockquote>
-<p>$f_{i,j} = max{ f_{l,j} + s_{l}(s_i-s_l)} (1 \leq l &lt; i)$</p>
+<p>$f_{i,j} = max\{ f_{l,j} + s_{l}(s_i-s_l)\} (1 \leq l &lt; i)$</p>
 </blockquote>
 <p>可以优化为滚动数组,推导时用$f_i$表示$f_{i,j-1}$.</p>
 <p>仿造上一篇博客里面使用的思考方式,我们在转移到i时,k比j优秀,于是有:</p>

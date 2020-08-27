@@ -141,19 +141,19 @@
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>设$f_i$表示第i个位置建仓库,i上面所有工厂的物质转移完毕所需的最小代价.</p>
 <p>先搞一个$O(n^3)$的大力dp,如下:</p>
 <blockquote>
-<p>$f_i = min { f_j + \sum_{l=j+1}^{i}((x_i-x_l)*p_l) } + c_i \qquad (1 \leq j &lt; i)$</p>
+<p>$f_i = min \{ f_j + \sum_{l=j+1}^{i}((x_i-x_l)*p_l) \} + c_i \qquad (1 \leq j &lt; i)$</p>
 </blockquote>
 <p>发现和式是可以拆的,化为下式:</p>
 <blockquote>
-<p>$f_i = min { f_j + x_i<em> \sum_{l=j+1}^{i}p_l - \sum_{l=j+1}^{i}x_l</em>p_l } + c_i \qquad (1 \leq j &lt; i)$</p>
+<p>$f_i = min \{ f_j + x_i* \sum_{l=j+1}^{i}p_l - \sum_{l=j+1}^{i}x_l*p_l \} + c_i \qquad (1 \leq j &lt; i)$</p>
 </blockquote>
 <p>然后就可以用前缀和优化为:</p>
 <blockquote>
-<p>$f_i = min { f_j + (sump_i - sump_j) * x_i - (sum_i -sum_j)} + c_i \qquad (1 \leq j &lt; i)$</p>
+<p>$f_i = min \{ f_j + (sump_i - sump_j) * x_i - (sum_i -sum_j)\} + c_i \qquad (1 \leq j &lt; i)$</p>
 </blockquote>
 <p>发现式子的形式可以斜率优化,设用k转移i比用j转移i优秀,得到如下不等式:</p>
 <blockquote>
-<p>$f_k + (sump_i - sump_k) <em>x_i - (sum_i - sum_k) &lt; f_j +(sump_i - sump_j) </em>x_i - (sum_i - sum_j)$</p>
+<p>$f_k + (sump_i - sump_k) *x_i - (sum_i - sum_k) &lt; f_j +(sump_i - sump_j) *x_i - (sum_i - sum_j)$</p>
 </blockquote>
 <p>移项,整理得:</p>
 <blockquote>

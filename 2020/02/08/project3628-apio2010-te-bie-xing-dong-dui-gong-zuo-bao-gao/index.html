@@ -140,15 +140,15 @@
 <h1 id="P3628-APIO2010-特别行动队"><a href="#P3628-APIO2010-特别行动队" class="headerlink" title="P3628 [APIO2010]特别行动队"></a>P3628 [APIO2010]特别行动队</h1><p><a href="https://www.luogu.com.cn/problem/P3628" target="_blank" rel="noopener"><em>题面</em></a></p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先考虑出一个$O(n^2)$的dp出来(sum为前缀和):</p>
 <blockquote>
-<p>$f_i = max{f_j + a<em>(sum_i - sum_j)^2 + b</em>(sum_i-sum_j) +c} (1 \leq j \leq i)$</p>
+<p>$f_i = max\{f_j + a*(sum_i - sum_j)^2 + b*(sum_i-sum_j) +c\} (1 \leq j \leq i)$</p>
 </blockquote>
 <p>暴力拆开,整理得:</p>
 <blockquote>
-<p>$f_i = max{f_j - 2a<em>sum_i</em>sum_j + a<em>sum_j^2 - b</em>sum_j} + a<em>sum_{i}^2 + b</em>sum_i +c$</p>
+<p>$f_i = max\{f_j - 2a*sum_i*sum_j + a*sum_j^2 - b*sum_j\} + a*sum_{i}^2 + b*sum_i +c$</p>
 </blockquote>
 <p>需要把这个式子化成$y = kx+ b$的形式进行线性规划.</p>
-<p>考虑把max后面的一堆东西移到左边,作为线性规划中需要最大化的截距,即$b_i = f_i - a<em>sum_{i}^2 - b</em>sum_i - c$.</p>
-<p>然后$2<em>a</em>sum_i$作为斜率,$sum_j$作为x,$f_j + a<em>sum_j^2 - b</em>sum_j$作为y.</p>
+<p>考虑把max后面的一堆东西移到左边,作为线性规划中需要最大化的截距,即$b_i = f_i - a*sum_{i}^2 - b*sum_i - c$.</p>
+<p>然后$2*a*sum_i$作为斜率,$sum_j$作为x,$f_j + a*sum_j^2 - b*sum_j$作为y.</p>
 <p>所以就可以发现,斜率是单调递减的,$x_i$单调递增,需要维护一个上凸壳(其实是一种构造策略).</p>
 <p>最优解出现在直线与上凸壳的交点上,也就是当前维护的单调队列中第一个连向后面的点形成的直线斜率小于新直线的点,因为新直线斜率满足单调性,发现单调队列中队尾的点连向后面的点形成的直线有斜率比当前直线大的,可以直接弹出,它不再可能成为一个最优解了.</p>
 <p>然后是如何维护一个上凸壳,如果发现新加入的直线斜率大于原先队首的两个点形成的直线,就弹出队首,这一点学过凸包就知道了.</p>
