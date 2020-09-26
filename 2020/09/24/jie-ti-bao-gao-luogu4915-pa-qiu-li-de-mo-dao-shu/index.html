@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="「解题报告」luogu4915帕秋莉的魔导书"><meta name="keywords" content="数据结构, 线段树, Lemir3's blog"><link rel="alternate" href="/atom.xml" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2020/09/24/jie-ti-bao-gao-luogu4915-pa-qiu-li-de-mo-dao-shu/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>「解题报告」luogu4915帕秋莉的魔导书 - Lemir3's blog</title>
+  <link rel="alternate" href="/atom.xml" title="Lemir3's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">「解题报告」luogu4915帕秋莉的魔导书
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-09-24
+        </span><span class="post-category">
+            <a href="/categories/数据结构/">数据结构</a>
+            <a href="/categories/数据结构/数据结构-线段树/">数据结构-线段树</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#luogu4915帕秋莉的魔导书"><span class="toc-text">luogu4915帕秋莉的魔导书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>摘要:线段树维护前缀和</p>
+<a id="more"></a>
+<h1 id="luogu4915帕秋莉的魔导书"><a href="#luogu4915帕秋莉的魔导书" class="headerlink" title="luogu4915帕秋莉的魔导书"></a>luogu4915帕秋莉的魔导书</h1><p><a href="https://www.luogu.com.cn/problem/P4915" target="_blank" rel="noopener">题面</a></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>母亲的,打这题代码像见了鬼一样,各种莫名奇妙地掉精度,炸范围,开够的数组莫名被清空一怒之下开大10倍空间…</p>
+<p>话说回来这个出题人出了好多姆q题啊,<del>以后我题面也全写姆q了.</del></p>
+<p>转化应该挺容易的,我们需要维护值域前缀和的部分和.</p>
+<p>求得初始的前缀和后建出线段树维护部分和,考虑怎么带修,一个位置的值发生改变,那么这个位置后面的前缀和均会发生改变一个相同的值,区间修改即可.</p>
+<p>因为值域太大考虑离散化,把作为在值域出现的值全部存下来离散化即可.</p>
+<p>然而这样显然不可行,比如可爱的出题人给了这样一组hack:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">in:</span><br><span class="line">2 2</span><br><span class="line">1 3</span><br><span class="line">5 2</span><br><span class="line">1 3 3</span><br><span class="line">1 3 5</span><br><span class="line">out:</span><br><span class="line">3.0000</span><br><span class="line">3.6667</span><br></pre></td></tr></table></figure>
+<p>因为题目是求期望,所以需要求得区间内的所有情况,但我们这样离散化仅保留了大小关系的信息,所以需要维护离散化之后的值域上两个数之间省略的原值域的大小,在维护前缀和的过程中,省略的值可以整体考虑,因为没有在其范围内的询问或插入,整体的值仅和省略区间的左端点的值有关.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"assert.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;-x)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lxl;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">double</span> lbl;</span><br><span class="line"><span class="keyword">const</span> lxl big=<span class="number">300010</span>,small=<span class="number">1000010</span>;</span><br><span class="line">lxl n,m,BCnt,QCnt,cut,NowQ,NowB,knoc,root,NodeCnt;</span><br><span class="line">lxl val[big],kno[big],whi[small],siz[big];</span><br><span class="line">lxl c[<span class="number">2</span>][big&lt;&lt;<span class="number">2</span>],sum[big&lt;&lt;<span class="number">2</span>],sum2[big&lt;&lt;<span class="number">2</span>],tag[big&lt;&lt;<span class="number">2</span>],size[big&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="keyword">double</span> di;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">Pachy</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	lxl a,w;</span><br><span class="line">&#125;b[small];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">Query</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	lxl l,r;</span><br><span class="line">	<span class="keyword">double</span> len;</span><br><span class="line">&#125;q[small];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">	lxl f(1),x(0);</span><br><span class="line">	<span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line">	<span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line">	<span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">PushUp</span><span class="params">(lxl t)</span></span>&#123;sum[t]=sum[c[<span class="number">0</span>][t]]+sum[c[<span class="number">1</span>][t]];&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">PushDown</span><span class="params">(lxl t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!tag[t])<span class="keyword">return</span>;</span><br><span class="line">	lxl lson=c[<span class="number">0</span>][t],rson=c[<span class="number">1</span>][t];</span><br><span class="line">	sum[lson]+=tag[t]*size[lson],sum[rson]+=tag[t]*size[rson];</span><br><span class="line">	sum2[lson]+=tag[t]*(size[lson]<span class="number">-1</span>),sum2[rson]+=tag[t]*(size[rson]<span class="number">-1</span>);</span><br><span class="line">	tag[lson]+=tag[t],tag[rson]+=tag[t];</span><br><span class="line">	tag[t]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildTree</span><span class="params">(lxl &amp;t,lxl l,lxl r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!t)t=++NodeCnt;</span><br><span class="line">	<span class="keyword">if</span>(l==r)&#123;size[t]=siz[l],sum[t]=val[l]*size[t],sum2[t]=val[l]*(size[t]<span class="number">-1</span>);<span class="keyword">return</span>;&#125;</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	BuildTree(c[<span class="number">0</span>][t],l,mid),BuildTree(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r);</span><br><span class="line">	PushUp(t);</span><br><span class="line">	size[t]=size[c[<span class="number">0</span>][t]]+size[c[<span class="number">1</span>][t]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(lxl t,lxl l,lxl r,lxl x,lxl y,lxl kd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=l&amp;&amp;y&gt;=r)&#123;sum[t]+=kd*size[t],sum2[t]+=kd*(size[t]<span class="number">-1</span>),tag[t]+=kd;<span class="keyword">return</span>;&#125;</span><br><span class="line">	PushDown(t);</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid)insert(c[<span class="number">0</span>][t],l,mid,x,y,kd);</span><br><span class="line">	<span class="keyword">if</span>(y&gt;mid)insert(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r,x,y,kd);</span><br><span class="line">	PushUp(t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">lbl <span class="title">query</span><span class="params">(lxl t,lxl l,lxl r,lxl x,lxl y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=l&amp;&amp;y&gt;=r)<span class="keyword">return</span> (lbl)sum[t]/di;</span><br><span class="line">	PushDown(t);</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">ret</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid)ret+=query(c[<span class="number">0</span>][t],l,mid,x,y);</span><br><span class="line">	<span class="keyword">if</span>(y&gt;mid)ret+=query(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r,x,y);</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">lbl <span class="title">query2</span><span class="params">(lxl t,lxl l,lxl r,lxl x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l==r)<span class="keyword">return</span> (lbl)sum2[t]/di;</span><br><span class="line">	PushDown(t);</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid)<span class="keyword">return</span> query2(c[<span class="number">0</span>][t],l,mid,x);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> query2(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// freopen("data.txt","r",stdin),freopen("test.out","w",stdout);</span></span><br><span class="line">	n=read(),m=read();</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)b[++BCnt].a=read(),b[BCnt].w=read(),kno[++knoc]=b[i].a;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=m;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		whi[i]=read();</span><br><span class="line">		<span class="keyword">if</span>(whi[i]==<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			q[++QCnt].l=read(),q[QCnt].r=read(),q[QCnt].len=q[QCnt].r-q[QCnt].l+<span class="number">1</span>;</span><br><span class="line">			kno[++knoc]=q[QCnt].l,kno[++knoc]=q[QCnt].r;</span><br><span class="line">			<span class="comment">// debugf(q[QCnt].len),debug(q[QCnt].l),debug(q[QCnt].r),endl;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> b[++BCnt].a=read(),b[BCnt].w=read(),kno[++knoc]=b[BCnt].a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// for(R int i(1);i&lt;=QCnt;++i)debugf(q[i].len),debug(q[i].l),debug(q[i].r),endl;</span></span><br><span class="line">	<span class="built_in">std</span>::sort(kno+<span class="number">1</span>,kno+<span class="number">1</span>+knoc),cut=<span class="built_in">std</span>::unique(kno+<span class="number">1</span>,kno+<span class="number">1</span>+knoc)-kno<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=BCnt;++i)b[i].a=<span class="built_in">std</span>::lower_bound(kno+<span class="number">1</span>,kno+<span class="number">1</span>+cut,b[i].a)-kno;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=QCnt;++i)</span><br><span class="line">		q[i].l=<span class="built_in">std</span>::lower_bound(kno+<span class="number">1</span>,kno+<span class="number">1</span>+cut,q[i].l)-kno,</span><br><span class="line">		q[i].r=<span class="built_in">std</span>::lower_bound(kno+<span class="number">1</span>,kno+<span class="number">1</span>+cut,q[i].r)-kno;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)val[b[i].a]+=b[i].w;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=cut;++i)val[i]+=val[i<span class="number">-1</span>],siz[i]=kno[i+<span class="number">1</span>]-kno[i];</span><br><span class="line">	siz[cut]=<span class="number">1</span>,NowB=n,BuildTree(root,<span class="number">1</span>,cut);</span><br><span class="line">	<span class="comment">// debugf(q[1].len);</span></span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=m;++i)</span><br><span class="line">		<span class="keyword">if</span>(whi[i]==<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			++NowQ;</span><br><span class="line">			<span class="comment">// assert(q[NowQ].len&gt;0.01);</span></span><br><span class="line">			di=q[NowQ].len;</span><br><span class="line">			<span class="comment">// if((lxl)di==0)debug(NowQ),debugf(q[NowQ].len),debugf(di),endl;</span></span><br><span class="line">			<span class="keyword">double</span> all=query(root,<span class="number">1</span>,cut,q[NowQ].l,q[NowQ].r)-query2(root,<span class="number">1</span>,cut,q[NowQ].r);</span><br><span class="line">			<span class="comment">// std::cout&lt;&lt;std::fixed&lt;&lt;std::setprecision(4)&lt;&lt;all;endl;</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%.4lf\n"</span>,all);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> ++NowB,insert(root,<span class="number">1</span>,cut,b[NowB].a,cut,b[NowB].w);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">2 2</span></span><br><span class="line"><span class="comment">1 3</span></span><br><span class="line"><span class="comment">5 2</span></span><br><span class="line"><span class="comment">1 3 3</span></span><br><span class="line"><span class="comment">1 3 5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2020/09/24/jie-ti-bao-gao-luogu4915-pa-qiu-li-de-mo-dao-shu/">https://www.lemir3.red/2020/09/24/jie-ti-bao-gao-luogu4915-pa-qiu-li-de-mo-dao-shu/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/数据结构/">数据结构</a>
+            <a href="/tags/线段树/">线段树</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/09/25/jie-ti-bao-gao-cf123e-maze/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「解题报告」CF123E Maze</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/09/24/jie-ti-bao-gao-poi2011-rot-tree-rotations/">
+        <span class="next-text nav-default">「解题报告」「POI2011」ROT-Tree Rotations</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+  <script src="\js\APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+  <script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>
