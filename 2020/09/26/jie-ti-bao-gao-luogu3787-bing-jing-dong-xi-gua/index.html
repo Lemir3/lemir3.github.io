@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="「解题报告」luogu3787冰精冻西瓜"><meta name="keywords" content="数据结构, 线段树, 树链剖分, Lemir3's blog"><link rel="alternate" href="/atom.xml" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2020/09/26/jie-ti-bao-gao-luogu3787-bing-jing-dong-xi-gua/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>「解题报告」luogu3787冰精冻西瓜 - Lemir3's blog</title>
+  <link rel="alternate" href="/atom.xml" title="Lemir3's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">「解题报告」luogu3787冰精冻西瓜
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-09-26
+        </span><span class="post-category">
+            <a href="/categories/数据结构/">数据结构</a>
+            <a href="/categories/数据结构/数据结构-线段树/">数据结构-线段树</a>
+            <a href="/categories/数据结构/数据结构-线段树/树链剖分/">树链剖分</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#luogu3787冰精冻西瓜"><span class="toc-text">　luogu3787冰精冻西瓜</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>摘要:树上转化整体考虑</p>
+<a id="more"></a>
+<h1 id="luogu3787冰精冻西瓜"><a href="#luogu3787冰精冻西瓜" class="headerlink" title="　luogu3787冰精冻西瓜"></a>　luogu3787冰精冻西瓜</h1><p><a href="https://www.luogu.com.cn/problem/P3787" target="_blank" rel="noopener">题面</a></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>对于每次的修改,我们可以将其分为两部分,一部分是从增加的起点那里未经损耗应该获得的值,一部分是损耗的比例,可以发现仅考虑根节点,每个点损耗的比例是固定的,设这个值为$dis$,那么我们树剖后用线段树子树加维护出本应获得的值,在询问时乘以这个固定的损耗比例即可.</p>
+<p>但问题在于每次修改的点不一定是根节点,所以沿用上述方法的话就需要以对每个点为根的情况重新计算一次损耗比例,不过很快我们可以发现,一个点$u$到根的损耗比例是固定的,它的子树内的所有损耗比例都乘上了这个值,那么我们将这次修改的$x$重设为$\frac{x}{dis[u]}$以消去$u$到根节点的损耗即可.</p>
+<p>注意到有边权为$0$的点存在,对于这些边我们将其在树上断开单独成树,在树剖时在每个树根上分别进入递归即可.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lxl;</span><br><span class="line"><span class="keyword">const</span> lxl big=<span class="number">100010</span>;</span><br><span class="line">lxl n,m,EdgeSize,IdCnt,root,NodeCnt;</span><br><span class="line">lxl head[big],c[<span class="number">2</span>][big&lt;&lt;<span class="number">2</span>],top[big],id[big],son[big],size[big],fa[big],dep[big],nr[big];</span><br><span class="line"><span class="keyword">double</span> dis[big],w[big&lt;&lt;<span class="number">2</span>],tag[big&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	lxl v,next;</span><br><span class="line">	<span class="keyword">double</span> w;</span><br><span class="line">&#125;e[big&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c=getchar();</span><br><span class="line">	lxl x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);c=getchar());</span><br><span class="line">	<span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);c=getchar())x=x*<span class="number">10</span>+(c^<span class="number">48</span>);</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> add(u,v,w) EdgeAdd(u,v,w),EdgeAdd(v,u,w)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(lxl u,lxl v,<span class="keyword">double</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	e[EdgeSize]=(_Edge)&#123;v,head[u],w&#125;;</span><br><span class="line">	head[u]=EdgeSize++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(lxl u,lxl father)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl v=e[i].v;<span class="keyword">double</span> w=e[i].w;</span><br><span class="line">		<span class="keyword">if</span>(v==father)<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">if</span>(w==<span class="number">0</span>)nr[v]=<span class="number">1</span>;</span><br><span class="line">		dfs(v,u);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(lxl u,lxl father)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	size[u]=<span class="number">1</span>,fa[u]=father,dep[u]=dep[father]+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl v=e[i].v;<span class="keyword">double</span> w=e[i].w;</span><br><span class="line">		<span class="keyword">if</span>(v==father||w==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">		dis[v]=dis[u]*w;</span><br><span class="line">		dfs1(v,u);</span><br><span class="line">		size[u]+=size[v];</span><br><span class="line">		<span class="keyword">if</span>(size[son[u]]&lt;size[v])son[u]=v;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(lxl u,lxl top_)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	top[u]=top_,id[u]=++IdCnt;</span><br><span class="line">	<span class="keyword">if</span>(son[u])dfs2(son[u],top_);</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl v=e[i].v;<span class="keyword">double</span> w=e[i].w;</span><br><span class="line">		<span class="keyword">if</span>(v==son[u]||v==fa[u]||w==<span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">		dfs2(v,v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">PushDown</span><span class="params">(lxl t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(tag[t]==<span class="number">0</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> lson c[0][t]</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> rson c[1][t]</span></span><br><span class="line">	tag[lson]+=tag[t],tag[rson]+=tag[t];</span><br><span class="line">	w[lson]+=tag[t],w[rson]+=tag[t];</span><br><span class="line">	tag[t]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildTree</span><span class="params">(lxl &amp;t,lxl l,lxl r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!t)t=++NodeCnt;</span><br><span class="line">	<span class="keyword">if</span>(l==r)<span class="keyword">return</span>;</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	BuildTree(c[<span class="number">0</span>][t],l,mid),BuildTree(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(lxl t,lxl l,lxl r,lxl x,lxl y,<span class="keyword">double</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=l&amp;&amp;y&gt;=r)&#123;tag[t]+=k,w[t]+=k;<span class="keyword">return</span>;&#125;</span><br><span class="line">	PushDown(t);</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid)modify(c[<span class="number">0</span>][t],l,mid,x,y,k);</span><br><span class="line">	<span class="keyword">if</span>(y&gt;mid)modify(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r,x,y,k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">query</span><span class="params">(lxl t,lxl l,lxl r,lxl x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l==r)<span class="keyword">return</span> w[t];</span><br><span class="line">	PushDown(t);</span><br><span class="line">	<span class="function">lxl <span class="title">mid</span><span class="params">((l+r)&gt;&gt;<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid)<span class="keyword">return</span> query(c[<span class="number">0</span>][t],l,mid,x);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> query(c[<span class="number">1</span>][t],mid+<span class="number">1</span>,r,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</span><br><span class="line">	n=read();</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;n;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl u=read(),v=read();<span class="keyword">double</span> k;<span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;k);</span><br><span class="line">		add(u,v,k);</span><br><span class="line">	&#125;</span><br><span class="line">	nr[<span class="number">1</span>]=<span class="number">1</span>,dfs(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)<span class="keyword">if</span>(nr[i])dis[i]=<span class="number">1</span>,dfs1(i,<span class="number">0</span>),dfs2(i,i);</span><br><span class="line">	BuildTree(root,<span class="number">1</span>,n);</span><br><span class="line">	m=read();</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=m;++i)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl opt=read();</span><br><span class="line">		<span class="keyword">if</span>(opt==<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			lxl x=read();<span class="keyword">double</span> k;<span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;k);</span><br><span class="line">			modify(root,<span class="number">1</span>,n,id[x],id[x]+size[x]<span class="number">-1</span>,k/dis[x]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			lxl x=read();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%.8lf\n"</span>,query(root,<span class="number">1</span>,n,id[x])*dis[x]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2020/09/26/jie-ti-bao-gao-luogu3787-bing-jing-dong-xi-gua/">https://www.lemir3.red/2020/09/26/jie-ti-bao-gao-luogu3787-bing-jing-dong-xi-gua/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/数据结构/">数据结构</a>
+            <a href="/tags/线段树/">线段树</a>
+            <a href="/tags/树链剖分/">树链剖分</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2020/09/27/zong-jie-09272020-ji-fang-ce-shi/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">「总结」09272020机房测试</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/09/25/jie-ti-bao-gao-cf123e-maze/">
+        <span class="next-text nav-default">「解题报告」CF123E Maze</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+  <script src="\js\APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+  <script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>
