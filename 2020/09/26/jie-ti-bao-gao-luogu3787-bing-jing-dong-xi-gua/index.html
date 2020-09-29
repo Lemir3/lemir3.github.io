@@ -135,11 +135,11 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#luogu3787冰精冻西瓜"><span class="toc-text">　luogu3787冰精冻西瓜</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#luogu3787冰精冻西瓜"><span class="toc-text">luogu3787冰精冻西瓜</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
     </div>
   </div><div class="post-content"><p>摘要:树上转化整体考虑</p>
 <a id="more"></a>
-<h1 id="luogu3787冰精冻西瓜"><a href="#luogu3787冰精冻西瓜" class="headerlink" title="　luogu3787冰精冻西瓜"></a>　luogu3787冰精冻西瓜</h1><p><a href="https://www.luogu.com.cn/problem/P3787" target="_blank" rel="noopener">题面</a></p>
+<h1 id="luogu3787冰精冻西瓜"><a href="#luogu3787冰精冻西瓜" class="headerlink" title="luogu3787冰精冻西瓜"></a>luogu3787冰精冻西瓜</h1><p><a href="https://www.luogu.com.cn/problem/P3787" target="_blank" rel="noopener">题面</a></p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>对于每次的修改,我们可以将其分为两部分,一部分是从增加的起点那里未经损耗应该获得的值,一部分是损耗的比例,可以发现仅考虑根节点,每个点损耗的比例是固定的,设这个值为$dis$,那么我们树剖后用线段树子树加维护出本应获得的值,在询问时乘以这个固定的损耗比例即可.</p>
 <p>但问题在于每次修改的点不一定是根节点,所以沿用上述方法的话就需要以对每个点为根的情况重新计算一次损耗比例,不过很快我们可以发现,一个点$u$到根的损耗比例是固定的,它的子树内的所有损耗比例都乘上了这个值,那么我们将这次修改的$x$重设为$\frac{x}{dis[u]}$以消去$u$到根节点的损耗即可.</p>
 <p>注意到有边权为$0$的点存在,对于这些边我们将其在树上断开单独成树,在树剖时在每个树根上分别进入递归即可.</p>
