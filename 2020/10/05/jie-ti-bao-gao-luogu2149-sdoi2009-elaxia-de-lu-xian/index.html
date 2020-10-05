@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="「解题报告」luogu2149「SDOI2009」Elaxia的路线"><meta name="keywords" content="动态规划, 图论, 最短路, Lemir3's blog"><link rel="alternate" href="/atom.xml" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2020/10/05/jie-ti-bao-gao-luogu2149-sdoi2009-elaxia-de-lu-xian/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>「解题报告」luogu2149「SDOI2009」Elaxia的路线 - Lemir3's blog</title>
+  <link rel="alternate" href="/atom.xml" title="Lemir3's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="mobile-header-logo">
+    <a href="/." class="logo">Lemir3's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a><a href="/links/">
+        <li class="mobile-menu-item">Links
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Lemir3's blog</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/links/">
+            Links
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">「解题报告」luogu2149「SDOI2009」Elaxia的路线
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-10-05
+        </span><span class="post-category">
+            <a href="/categories/图论/">图论</a>
+            <a href="/categories/图论/图论-最短路/">图论-最短路</a>
+            <a href="/categories/图论/图论-最短路/动态规划/">动态规划</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#「SDOI2009」Elaxia的路线"><span class="toc-text">「SDOI2009」Elaxia的路线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目分析"><span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><p>摘要:无向图中两对点间最短路的最长公共路径</p>
+<a id="more"></a>
+<h1 id="「SDOI2009」Elaxia的路线"><a href="#「SDOI2009」Elaxia的路线" class="headerlink" title="「SDOI2009」Elaxia的路线"></a>「SDOI2009」Elaxia的路线</h1><p><a href="https://www.luogu.com.cn/problem/P2149" target="_blank" rel="noopener">题面</a></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>说起来可能就一句,先建两张最短路图,然后在重合的部分跑dp求最长路径.</p>
+<p>但是具体来讲有很多注意的地方.</p>
+<p>首先是如何建立最短路图,这一题中的最短路图比较特殊,因为不能在起点到终点的路径之外的部分产生重合部分,所以在进行完最短路算法之后,我们从终点开始进行bfs,若一个点$u$通过边$(u,v,w)$相连的点$v$满足$dis_v+w=dis_u$,那么就说明$v$在最短路图上,将$v$放入队列进行bfs.</p>
+<p>这样建出的最短路图的形态是一条从起点$s$到终点$t$的链,中间存在一些环作为可替代的路径.</p>
+<p>至于如何求得两张最短路图重叠的部分,在建立第一张图时,我们将图上的边建出来,并记录哪些点之间有边,在建立第二张图时,仅保存哪些点之间有边,然后遍历第一张图,保留下在两张图都存在的边即可.</p>
+<p>然后在新建出的图上进行记忆化搜索即可,这一步是很好写的.</p>
+<p>不过这样做有一点问题,比如下面这组数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">9 12</span><br><span class="line">1 7 8 9</span><br><span class="line">1 2 1</span><br><span class="line">2 5 1</span><br><span class="line">2 3 1</span><br><span class="line">2 6 1</span><br><span class="line">3 4 1</span><br><span class="line">5 4 1</span><br><span class="line">4 7 1</span><br><span class="line">4 6 1</span><br><span class="line">8 5 1</span><br><span class="line">5 3 1</span><br><span class="line">3 6 1</span><br><span class="line">6 9 1</span><br></pre></td></tr></table></figure>
+<p>它的形态是两个长度为$5$的链在中间节点的位置相交,然后中间节点周围的四个点连成环,这样的话中间的$5$个节点均为重叠部分,按照上面的记忆化搜索答案为$2$,但是由于重叠部分的路径不可能同时经过一张最短路图中一个环的两部分(就是说重叠部分的路径也一定是在原来的最短路径上而不能被拼凑出来),答案理应为$1$,洛谷上21篇题解中有15篇题解都被这组数据hack了,但管理员直到我写出这篇博客都还没去看我的帖子加数据撤题解…</p>
+<p>于是我们除了将最短路图建成有向的之外别无他法,这样的重叠部分的路径就一定在原最短路图其中的一条路径上,但这样又产生了一个问题,你很快会发现这样连样例数据都无法通过,因为在样例中重叠部分的路径是反向的.</p>
+<p>解决方法是跑出$(s1,e1)$,$(s2,e2)$的答案后,再处理一遍$(e1,s1)$,$(s2,e2)$的,因为边本来就是无向的,所以只要有一个起终点关系反向即可.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> lxl;</span><br><span class="line"><span class="keyword">const</span> lxl big=<span class="number">1510</span>,large=<span class="number">300010</span>;</span><br><span class="line">lxl n,m,w,EdgeSize;</span><br><span class="line">lxl head[big],dis[big],vis[big],dp[big],from[big],dep[big],gone[big];</span><br><span class="line">lxl edgeh[big][big];</span><br><span class="line">lxl go[<span class="number">4</span>],ans[<span class="number">2</span>];</span><br><span class="line">lxl change[<span class="number">2</span>][<span class="number">4</span>]=</span><br><span class="line">&#123;</span><br><span class="line">	<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,</span><br><span class="line">	<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">Edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	lxl v,next,w;</span><br><span class="line">&#125;e[large&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="built_in">std</span>::priority_queue&lt;<span class="built_in">std</span>::pair&lt;lxl,lxl&gt; &gt;q;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">queue</span>&lt;lxl&gt;que,q2;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::pair&lt;lxl,lxl&gt; &gt;edge[<span class="number">2</span>][big];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">	lxl f(1),x(0);</span><br><span class="line">	<span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line">	<span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=x*<span class="number">10</span>+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line">	<span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> add(u,v,w) EdgeAdd(u,v,w),EdgeAdd(v,u,w)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">EdgeAdd</span><span class="params">(lxl u,lxl v,lxl w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	e[EdgeSize]=(_Edge)&#123;v,head[u],w&#125;;</span><br><span class="line">	head[u]=EdgeSize++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(lxl s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis),<span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> dis),<span class="built_in">memset</span>(from,<span class="number">0</span>,<span class="keyword">sizeof</span> from);</span><br><span class="line">	dis[s]=<span class="number">0</span>,q.push(<span class="built_in">std</span>::make_pair(<span class="number">0</span>,s));</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		lxl u=q.top().second;q.pop();</span><br><span class="line">		<span class="keyword">if</span>(vis[u])<span class="keyword">continue</span>;vis[u]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">		&#123;</span><br><span class="line">			lxl v=e[i].v,w=e[i].w;</span><br><span class="line">			<span class="keyword">if</span>(dis[v]&gt;dis[u]+w)</span><br><span class="line">				dis[v]=dis[u]+w,from[v]=u,q.push(<span class="built_in">std</span>::make_pair(-dis[v],v));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">SPFA</span><span class="params">(lxl s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis),<span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> dis),<span class="built_in">memset</span>(from,<span class="number">0</span>,<span class="keyword">sizeof</span> from);</span><br><span class="line">	dis[s]=<span class="number">0</span>,q2.push(s),vis[s]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q2.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		lxl u=q2.front();q2.pop(),vis[u]=<span class="literal">false</span>;</span><br><span class="line">		<span class="comment">// debugi(u);</span></span><br><span class="line">		<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">		&#123;</span><br><span class="line">			lxl v=e[i].v,w=e[i].w;</span><br><span class="line">			<span class="keyword">if</span>(dis[v]&gt;dis[u]+w)</span><br><span class="line">			&#123;	</span><br><span class="line">				dis[v]=dis[u]+w,from[v]=u;</span><br><span class="line">				<span class="keyword">if</span>(!vis[v])q2.push(v),vis[v]=<span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">build</span><span class="params">(lxl t,lxl sign)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis),<span class="built_in">memset</span>(gone,<span class="number">0</span>,<span class="keyword">sizeof</span> gone);</span><br><span class="line">	que.push(t),vis[t]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span>(!que.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		lxl u=que.front();que.pop(),vis[u]=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span>(gone[u])<span class="keyword">continue</span>;</span><br><span class="line">		gone[u]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(R <span class="keyword">int</span> i(head[u]);~i;i=e[i].next)</span><br><span class="line">		&#123;</span><br><span class="line">			lxl v=e[i].v,w=e[i].w;</span><br><span class="line">			<span class="keyword">if</span>(dis[v]+w==dis[u]&amp;&amp;edgeh[v][u]&lt;sign+<span class="number">1</span>)</span><br><span class="line">			&#123;	</span><br><span class="line">				<span class="keyword">if</span>(!sign)edge[sign][v].push_back(<span class="built_in">std</span>::make_pair(u,w));</span><br><span class="line">				++edgeh[v][u];</span><br><span class="line">				<span class="keyword">if</span>(!vis[v])que.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// debugi(t);</span></span><br><span class="line">	<span class="comment">// for(R int i(1);i&lt;=n;++i)</span></span><br><span class="line">	<span class="comment">// &#123;</span></span><br><span class="line">	<span class="comment">// 	for(R int j(head[i]);~j;j=e[j].next)</span></span><br><span class="line">	<span class="comment">// 	&#123;</span></span><br><span class="line">	<span class="comment">// 		lxl v=e[j].v,w=e[j].w;</span></span><br><span class="line">	<span class="comment">// 		if(dis[v]+w==dis[i]&amp;&amp;edgeh[v][i]&lt;sign+1)</span></span><br><span class="line">	<span class="comment">// 		&#123;</span></span><br><span class="line">	<span class="comment">// 			if(!sign)edge[sign][v].push_back(std::make_pair(i,w));</span></span><br><span class="line">	<span class="comment">// 			++edgeh[v][i];</span></span><br><span class="line">	<span class="comment">// 		&#125;</span></span><br><span class="line">	<span class="comment">// 	&#125;</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">lxl <span class="title">dfs</span><span class="params">(lxl u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(dp[u])<span class="keyword">return</span> dp[u];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it=edge[<span class="number">1</span>][u].begin();it!=edge[<span class="number">1</span>][u].end();++it)</span><br><span class="line">	&#123;</span><br><span class="line">		lxl v=it-&gt;first,w=it-&gt;second;</span><br><span class="line">		dp[u]=<span class="built_in">std</span>::max(dfs(v)+w,dp[u]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[u];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// freopen("data.txt","r",stdin);</span></span><br><span class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span> head);</span><br><span class="line">	n=read(),m=read(),go[<span class="number">0</span>]=read(),go[<span class="number">1</span>]=read(),go[<span class="number">2</span>]=read(),go[<span class="number">3</span>]=read();</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=m;++i)&#123;lxl u=read(),v=read(),w=read();add(u,v,w);&#125;</span><br><span class="line">	<span class="keyword">for</span>(R <span class="keyword">int</span> d(<span class="number">0</span>);d&lt;<span class="number">2</span>;++d)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(d)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)edge[<span class="number">0</span>][i].clear(),edge[<span class="number">1</span>][i].clear();</span><br><span class="line">			<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span> dp),<span class="built_in">memset</span>(edgeh,<span class="number">0</span>,<span class="keyword">sizeof</span> edgeh);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// double st=clock();</span></span><br><span class="line">		dijkstra(go[change[d][<span class="number">0</span>]]),build(go[change[d][<span class="number">1</span>]],<span class="number">0</span>);</span><br><span class="line">		dijkstra(go[change[d][<span class="number">2</span>]]),build(go[change[d][<span class="number">3</span>]],<span class="number">1</span>);</span><br><span class="line">		<span class="comment">// double ed=clock();printf("using time:%llfms\n",ed-st);</span></span><br><span class="line">		<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">auto</span> it=edge[<span class="number">0</span>][i].begin();it!=edge[<span class="number">0</span>][i].end();++it)</span><br><span class="line">			&#123;</span><br><span class="line">				lxl v=it-&gt;first,w=it-&gt;second;</span><br><span class="line">				<span class="keyword">if</span>(edgeh[i][v]==<span class="number">2</span>)</span><br><span class="line">					edge[<span class="number">1</span>][i].push_back(<span class="built_in">std</span>::make_pair(v,w));</span><br><span class="line">				<span class="comment">// ,debugi(i),debug(v);</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// if(d)debug(edgeh[0][4][5]),debug(edgeh[1][4][]);</span></span><br><span class="line">		<span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(dp[i]||edge[<span class="number">1</span>][i].empty())<span class="keyword">continue</span>;</span><br><span class="line">			ans[d]=<span class="built_in">std</span>::max(dfs(i),ans[d]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,<span class="built_in">std</span>::max(ans[<span class="number">0</span>],ans[<span class="number">1</span>]));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4 4</span></span><br><span class="line"><span class="comment">1 4 1 4</span></span><br><span class="line"><span class="comment">1 2 1</span></span><br><span class="line"><span class="comment">2 3 1</span></span><br><span class="line"><span class="comment">3 4 1</span></span><br><span class="line"><span class="comment">1 4 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">9 12</span></span><br><span class="line"><span class="comment">1 7 8 9</span></span><br><span class="line"><span class="comment">1 2 1</span></span><br><span class="line"><span class="comment">2 5 1</span></span><br><span class="line"><span class="comment">2 3 1</span></span><br><span class="line"><span class="comment">2 6 1</span></span><br><span class="line"><span class="comment">3 4 1</span></span><br><span class="line"><span class="comment">5 4 1</span></span><br><span class="line"><span class="comment">4 7 1</span></span><br><span class="line"><span class="comment">4 6 1</span></span><br><span class="line"><span class="comment">8 5 1</span></span><br><span class="line"><span class="comment">5 3 1</span></span><br><span class="line"><span class="comment">3 6 1</span></span><br><span class="line"><span class="comment">6 9 1</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://www.lemir3.red">lemir3</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://www.lemir3.red/2020/10/05/jie-ti-bao-gao-luogu2149-sdoi2009-elaxia-de-lu-xian/">https://www.lemir3.red/2020/10/05/jie-ti-bao-gao-luogu2149-sdoi2009-elaxia-de-lu-xian/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/动态规划/">动态规划</a>
+            <a href="/tags/图论/">图论</a>
+            <a href="/tags/最短路/">最短路</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2020/10/04/jie-ti-bao-gao-uva1416-warfare-and-logistics/">
+        <span class="next-text nav-default">「解题报告」UVA1416 Warfare And Logistics</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="gitalk-container"></div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lemir3@outlook.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/lemir3" class="iconfont icon-github" title="github"></a>
+        <a href="https://www.zhihu.com/people/lemir3" class="iconfont icon-zhihu" title="zhihu"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lemir3</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '670bf3ed0a83fdca6808',
+    clientSecret: '9ea030854681b4438efa115f56dfe069f38f33d3',
+    repo: 'lemir3.github.io',
+    owner: 'lemir3',
+    admin: ['lemir3'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+<link rel="stylesheet" href="\css\APlayer.min.css">
+  <script src="\js\APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="3220766973" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#ff0000b3"></div>
+  <script src="\js\Meting.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+  </body>
+</html>
