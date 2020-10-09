@@ -150,7 +150,7 @@ a~xor~b=c
 a~xor~b~xor ~a=c~xor~a
 \\
 a~xor~c=b</script><p>这样的话,点$a$与点$b$的边权是$(a~xor~b)\times C$,我们设$a~xor~b=c$,那么就有$a~xor~c=b$了.</p>
-<p>按位考虑,设$c=\{k_0,k_1,k_2,\cdots,k_p\}~(k_i=\begin{cases}0\\2^{i}\end{cases})$.</p>
+<p>按位考虑,设$c=k_0+k_1+k_2+\cdots+k_p~(k_i=\begin{cases}0\\2^{i}\end{cases})$.</p>
 <p>于是就有:</p>
 <script type="math/tex; mode=display">
 a~xor~c=a~xor~k_0~xor~k_1~xor~k_2~xor\cdots~xor~k_p</script><p>所以可以将$a~xor~b$的过程视作$a$通过异或改变与$b$不相同的位置逐渐变化到$b$的过程,这个过程的权值就可以通过$c$的每一位来考虑,因此我们将$a~xor~2^{k}~(2^k \leq n)$与$a$连边,权值为$2^k\times C$,边数为$O(nlog_n+m)$,跑最短路即可.</p>
