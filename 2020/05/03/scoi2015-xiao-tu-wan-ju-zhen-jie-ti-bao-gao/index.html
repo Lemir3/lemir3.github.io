@@ -140,7 +140,7 @@
 <a id="more"></a>
 <h1 id="SCOI2015-小凸玩矩阵"><a href="#SCOI2015-小凸玩矩阵" class="headerlink" title="[SCOI2015]小凸玩矩阵"></a>[SCOI2015]小凸玩矩阵</h1><p><a href="https://www.luogu.com.cn/problem/P4251" target="_blank" rel="noopener"><em>题面</em></a></p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>每行每列只能选一个,可以想到二分图的套路:将行和列连边.</p>
-<p>这样来跑二分图匹配,就可以保证一行对应一边.</p>
+<p>这样来跑二分图匹配,就可以保证一行对应一列.</p>
 <p>因为要求出最小的第k大值,于是想到二分出一个第k大的数,然后小于这个数的就行向列建边,跑出二分图最大匹配.</p>
 <p>如果最大匹配大于n-k,就说明这个数字还可以变得再小,缩小二分的边界.</p>
 <p>我的代码写出来常数比较大.</p>

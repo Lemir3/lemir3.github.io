@@ -139,7 +139,7 @@
   </div><div class="post-content"><p>摘要:最短路树分类讨论降低复杂度</p>
 <a id="more"></a>
 <h1 id="UVA1416-Warfare-And-Logistics"><a href="#UVA1416-Warfare-And-Logistics" class="headerlink" title="UVA1416 Warfare And Logistics"></a>UVA1416 Warfare And Logistics</h1><p><a href>题面</a></p>
-<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题意是给定一张图,求两两点之间的最短路长度之和,以及断掉一条边之和最大的最短路长度之和,不联通的点的最短路长度则计入一个指定的值.</p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题意是给定一张图,求两两点之间的最短路长度之和,以及断掉一条边之后最大的最短路长度之和,不联通的点的最短路长度则计入一个指定的值.</p>
 <p>一个朴素的思路是直接枚举断边,跑$m$遍floyd,时间复杂度$O(n^3m)$,十分拉垮.</p>
 <p>floyd换成dijkstra,复杂度为$O(nm^2logm)$.</p>
 <p>但是可以发现一点,一条边若始终不在最短路上,那么即使将它断掉也不会影响最短路,影响答案的仅会是出现在最短路上过的点.</p>
