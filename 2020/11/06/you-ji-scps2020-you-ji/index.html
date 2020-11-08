@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="CF649div2总结"><meta name="keywords" content="总结, Lemir3's blog"><link rel="alternate" href="/atom.xml" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
-<link rel="canonical" href="https://www.lemir3.red/2020/06/15/cf649div2-zong-jie/">
+<meta name="description" content="「游记」csps2020游记"><meta name="keywords" content="游记, Lemir3's blog"><link rel="alternate" href="/atom.xml" title="Lemir3's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://www.lemir3.red/2020/11/06/you-ji-scps2020-you-ji/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -40,7 +40,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
 </script>
 
-    <title>CF649div2总结 - Lemir3's blog</title>
+    <title>「游记」csps2020游记 - Lemir3's blog</title>
   <link rel="alternate" href="/atom.xml" title="Lemir3's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
@@ -118,14 +118,14 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">CF649div2总结
+      <h1 class="post-title">「游记」csps2020游记
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2020-06-15
+          2020-11-06
         </span><span class="post-category">
-            <a href="/categories/总结/">总结</a>
+            <a href="/categories/游记/">游记</a>
             </span>
         </div>
     </header>
@@ -133,46 +133,26 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#649div2"><span class="toc-text">649div2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1200"><span class="toc-text">A *1200</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-1300"><span class="toc-text">B *1300</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-1600"><span class="toc-text">C *1600</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-2100"><span class="toc-text">D *2100</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-2700"><span class="toc-text">E *2700</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#csps2020游记"><span class="toc-text">csps2020游记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day0"><span class="toc-text">day0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day1"><span class="toc-text">day1</span></a></li></ol></li></ol>
     </div>
-  </div><div class="post-content"><p>摘要:649div2赛后总结</p>
+  </div><div class="post-content"><p>摘要:三年oi一场空,踢断电源见祖宗</p>
 <a id="more"></a>
-<p>比赛那天晚上出去买东西了所以回家就没打,赛后自己做了下,写个总结方便以后回顾.</p>
-<p>也许是太久没打了,感觉这场相对其他div2要难一点.</p>
-<h2 id="649div2"><a href="#649div2" class="headerlink" title="649div2"></a>649div2</h2><h3 id="A-1200"><a href="#A-1200" class="headerlink" title="A *1200"></a><a href="https://codeforces.com/contest/1364/problem/A" target="_blank" rel="noopener">A *1200</a></h3><blockquote>
-<p>给定一个序列和一个数k,求出最长的和不被k整除的子串.</p>
-</blockquote>
-<p>考虑如果整个序列的和不被k整除那就直接输出原序列,然后如果整个序列的和都被k整除的话,考虑从首位删数.</p>
-<p>删去k的倍数肯定没用,所以删去第一个不被k整除的数,看删左边那一个数优还是右边的优.</p>
-<h3 id="B-1300"><a href="#B-1300" class="headerlink" title="B *1300"></a><a href="https://codeforces.com/contest/1364/problem/B" target="_blank" rel="noopener">B *1300</a></h3><blockquote>
-<p>给定序列s,拿出一个最小的子序列p,使得$|p_1-p_2|+|p_2-p_3|+\ldots+|p_{k-1}-p_k|$最大.</p>
-</blockquote>
-<p>不考虑子序列最小的话,发现原序列的式子就是最大的.</p>
-<p>因为可以发现在一个有单调性的子串中,可以只保留开头一个和结尾一个,容易发现这样对式子的值没有影响.</p>
-<p>现在考虑单调性发生变化的地方,比如一个波峰,也很容易发现删去波峰只会让两边的数挨得跟近,所以波峰必须保留.</p>
-<p>这样一来,删数就只会让答案不变或变小,所以原序列的值是最大的.</p>
-<p>现在考虑最小,按照上面的方法删去有单调性的子串中中间的数就可以了.</p>
-<h3 id="C-1600"><a href="#C-1600" class="headerlink" title="C *1600"></a><a href="https://codeforces.com/contest/1364/problem/C" target="_blank" rel="noopener">C *1600</a></h3><blockquote>
-<p>  给定一个单增序列a,构造一个序列b,使得$b_1 \cdots b_i$中未出现的最小非负整数为$a_i$,$0 \leq a_i \leq i.$</p>
-</blockquote>
-<p>因为$0\leq a_i \leq i$而且a单增,所以有$a_i=a_{i-1}$或者$a_i&gt;a_{i-1}$,所以如果是$a_i &gt; a_{i-1}$,那么$b_i$就只能等于$a_{i-1}$,因为序列单增,既然我们已经让$b_1 \cdots b_{i-1}$中未出现的最小非负整数等于$a_{i-1}$了,现在就应该让$b_i$等于$a_{i-1}$把它排除掉.</p>
-<p>然后考虑其他位置,先不考虑已经填过的数,发现$b_1 \cdots b_{i-1}$中未出现的非负整数小于等于$a_i$,所以说我们要让后填入的$b_i$尽量大,因为有$a_i \leq i$,所以单增的填入,让$b_1 \cdots b_i$中每一个数都小于$a_i$即可.</p>
-<h3 id="D-2100"><a href="#D-2100" class="headerlink" title="D *2100"></a><a href="https://codeforces.com/contest/1364/problem/D" target="_blank" rel="noopener">D *2100</a></h3><blockquote>
-<p>  给定一张联通无向图和一个整数k,求出$\lceil \frac{k}{2} \rceil$个独立的点或者大小小于等于k的简单环.</p>
-</blockquote>
-<p>因为保证联通了,所以先随便建出一颗树,考虑连非树边来形成环.</p>
-<p>找到一个最小环,很容易发现最小环一定是简单环,考虑反证,如果有其他的边穿过这个最小环,那么就形成了一个更小的环.</p>
-<p>这里树剖一下建出的树来求lca,枚举不在非树边用lca算一下边两端点的距离就是环的大小了.</p>
-<p>然后就有了3种情况:</p>
-<ol>
-<li>原图不存在环 </li>
-<li>最小环&lt;k</li>
-<li>最小环&gt;k</li>
-</ol>
-<p>对于情况1,直接黑白染色划分成两个集,从大的一个集里面取出$\lceil \frac{k}{2} \rceil$个点就是了,因为$k \leq n$所以一定有解.</p>
-<p>对于情况2,直接输出这个环,求最小环的时候记录一下边,输出边两边的点向lca跳的过程就是环了.</p>
-<p>对于情况3,对这个环进行黑白染色,因为这个环大小大于k,所以一定有$\lceil \frac{k}{2} \rceil$个点可以被选出来.</p>
-<h3 id="E-2700"><a href="#E-2700" class="headerlink" title="E *2700"></a><a href="https://codeforces.com/contest/1364/problem/E" target="_blank" rel="noopener">E *2700</a></h3><p>交互题,没打.</p>
+<h1 id="csps2020游记"><a href="#csps2020游记" class="headerlink" title="csps2020游记"></a>csps2020游记</h1><p><del>标题有csp会不会被禁赛啊.</del></p>
+<h2 id="day0"><a href="#day0" class="headerlink" title="day0"></a>day0</h2><p>下午出发去成都,中午因为出发的时候不会到机房去,懒得把收拾好的东西带回寝室了,于是在机房里待了一中午.</p>
+<p>临走前泡了一杯红茶,到了成都还没凉.</p>
+<p>在车上前一个小时在看以前的博客,复习了几场cf,看累了就戴着耳机听最近出的last run的OST打盹了.</p>
+<p>到酒店放了东西之后我们寝室和高一的就去吃火锅了,我想吃清淡点于是和就隔壁寝室一起了,吃完还随便面基了在神技大学的ss学长.</p>
+<p>晚上宾馆里上自习,复习了会板子,做了点dp练手,大赛经历多了反而到这种时候没啥感觉,希望今天晚上不要像去年那样一闭眼就全是代码睡不着.</p>
+<h2 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h2><p>早上继续在宾馆里自习,复习了往年考过的dp,继续看了点数学相关,自己推了推.</p>
+<p>中午教练点了外卖,吃完就去睡午觉了,起床直接去了考场.</p>
+<p>提前半个小时进考场坐着,旁边成七爷的虚拟机坏了一直在叫人修,然后还有人电脑锁了,开考后我校有个初三的也出了点问题叫人来修,这就是垃圾四川组委会吗.</p>
+<p>提前十分钟就公布密码了还在我出去上厕所的时候,结果我回来看着周围的人都打开pdf了楞了5分钟才问旁边的成七爷密码在哪…</p>
+<p>T1大模拟特别恶心,但是想了个比较不错的模拟策略,按照年份来处理循环节,从4813BC到1BC,1到1600都是4年循环,1600之后400年循环,然后1582年10月4号那个之后的直接加10天,码了一个半小时刚过大样例,pdf正要翻页到第二题,脚不小心碰到电源线电脑断电了,然后我重启后存在硬盘里的代码莫名乱码了,叫考务来也说没法修复,申请加时也说什么是我的原因也没给我过,心态直接爆炸.</p>
+<p>后面的题我变量名都想用sbccf了,写都不怎么想写…</p>
+<p>T2傻逼题,直接按位处理,写了一会就过大样例了,结果输出<code>unsigned long long</code>用了<code>%u</code>炸裂了.</p>
+<p>T3不想写线段树了,分块就两三行就直接写了个分块,本机大样例跑了3000ms,看ccf机子了.</p>
+<p>然后就看着T4发呆,毫无做题欲望.</p>
+<p>下次noip我带根绳子把自己绑椅子上好了,这神技大学的垃圾电脑一碰就断电cnmd.</p>
 
       </div>
       <div class="post-copyright">
@@ -182,7 +162,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="https://www.lemir3.red/2020/06/15/cf649div2-zong-jie/">https://www.lemir3.red/2020/06/15/cf649div2-zong-jie/</a>
+      <a href="https://www.lemir3.red/2020/11/06/you-ji-scps2020-you-ji/">https://www.lemir3.red/2020/11/06/you-ji-scps2020-you-ji/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
@@ -190,16 +170,11 @@
   </div>
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/总结/">总结</a>
+            <a href="/tags/游记/">游记</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2020/06/19/san-wei-pian-xu-mo-ban/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">三维偏序模板</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
-    <a class="next" href="/2020/06/13/sp3734-periodni-periodni-jie-ti-bao-gao/">
-        <span class="next-text nav-default">SP3734-PERIODNI-Periodni解题报告</span>
+        <nav class="post-nav"><a class="next" href="/2020/11/04/zong-jie-11042020-ji-fang-sai/">
+        <span class="next-text nav-default">「总结」11042020机房赛</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>

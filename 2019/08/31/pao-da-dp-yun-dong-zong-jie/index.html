@@ -278,7 +278,7 @@
 <p><a href="https://www.luogu.org/problem/P2734" target="_blank" rel="noopener"><em>题面2</em></a></p>
 <h3 id="题目分析-8"><a href="#题目分析-8" class="headerlink" title="题目分析"></a>题目分析</h3><p>定义状态$f_{l,r}$,表示取数的区间为$(l,r)$时的最优解.</p>
 <p>根据可以在左边取或者是在右边取这一原则,很容易想出以下方程:</p>
-<p>$f_{l,r} = pre_r - pre{l-1} - min(f_{l+1,r},f_{l,r-1})$</p>
+<p>$f_{l,r} = pre_r - pre_{l-1} - min(f_{l+1,r},f_{l,r-1})$</p>
 <p>其中的$pre$为前缀和,方便算出区间内的总值,再减去两边中小的那一边,就得到了更优的那一边.</p>
 <p>目标为$f_{1,n}$.</p>
 <p>但是第一道题这样的话是会爆空间的(当然第二道题不会),所以可以用到一个滚动数组优化.</p>
