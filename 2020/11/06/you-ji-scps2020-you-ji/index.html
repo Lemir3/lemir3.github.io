@@ -133,7 +133,7 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#csps2020游记"><span class="toc-text">csps2020游记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day0"><span class="toc-text">day0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day1"><span class="toc-text">day1</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#csps2020游记"><span class="toc-text">csps2020游记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day0"><span class="toc-text">day0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day1"><span class="toc-text">day1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
     </div>
   </div><div class="post-content"><p>摘要:三年oi一场空,踢断电源见祖宗</p>
 <a id="more"></a>
@@ -148,11 +148,16 @@
 <p>提前半个小时进考场坐着,旁边成七爷的虚拟机坏了一直在叫人修,然后还有人电脑锁了,开考后我校有个初三的也出了点问题叫人来修,这就是垃圾四川组委会吗.</p>
 <p>提前十分钟就公布密码了还在我出去上厕所的时候,结果我回来看着周围的人都打开pdf了楞了5分钟才问旁边的成七爷密码在哪…</p>
 <p>T1大模拟特别恶心,但是想了个比较不错的模拟策略,按照年份来处理循环节,从4813BC到1BC,1到1600都是4年循环,1600之后400年循环,然后1582年10月4号那个之后的直接加10天,码了一个半小时刚过大样例,pdf正要翻页到第二题,脚不小心碰到电源线电脑断电了,然后我重启后存在硬盘里的代码莫名乱码了,叫考务来也说没法修复,申请加时也说什么是我的原因也没给我过,心态直接爆炸.</p>
-<p>后面的题我变量名都想用sbccf了,写都不怎么想写…</p>
+<p>后面的题我变量名都想用fuckccf了,写都不怎么想写…</p>
 <p>T2傻逼题,直接按位处理,写了一会就过大样例了,结果输出<code>unsigned long long</code>用了<code>%u</code>炸裂了.</p>
 <p>T3不想写线段树了,分块就两三行就直接写了个分块,本机大样例跑了3000ms,看ccf机子了.</p>
 <p>然后就看着T4发呆,毫无做题欲望.</p>
 <p>下次noip我带根绳子把自己绑椅子上好了,这神技大学的垃圾电脑一碰就断电cnmd.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是写一下下一个月的计划吧.</p>
+<p>离noip还剩一个月,其实还可以干很多事情,首先是每天的考试总结还是得写,还要多去看之前的总结提炼考试技巧,解法就不用写太详细了,附在代码里简要说一下就好以免浪费时间.</p>
+<p>然后是与二进制有关的数据结构,比如<code>01trie</code>和<code>bitset</code>,自己用得比较少,考到的话不容易想出来怎么用这些数据结构来维护,这种应用方面看板子是没用的,应当在平时的时候积累使用技巧,也可以去问问用得熟练的人.</p>
+<p>每天的考试改完题后剩余的时间可以去做一些思维题,可以随机选一些题,想个十多分钟之后去和题解对思路,看自己是为什么没想到或者哪里想歪了,锻炼一下问题的分析能力.</p>
+<p>这次的csps因为一些原因后面的题没怎么认真去想,但其实也暴露了一些问题,首先是代码习惯的问题,在一些地方不喜欢写函数,导致T1明明有清晰的模拟思路却因为代码写了太多雷同的操作打了一个多小时,然后是编程基础的疏漏,输出的占位符用错了,在一些问题的实现方式上也需要多加练习,T4大概有个线性处理的思路但不知道怎么具体怎么维护变动的最值,考下来看题解才发现是个很巧妙的维护两个有单调性质的队列,这一点其实也可以通过随机选题来练习.</p>
 
       </div>
       <div class="post-copyright">
