@@ -6,7 +6,7 @@
   <link href="https://www.lemir3.red/atom.xml" rel="self"/>
   
   <link href="https://www.lemir3.red/"/>
-  <updated>2020-11-09T13:49:55.980Z</updated>
+  <updated>2020-11-11T08:29:23.660Z</updated>
   <id>https://www.lemir3.red/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「总结」11112020机房赛</title>
+    <link href="https://www.lemir3.red/2020/11/11/zong-jie-11112020-ji-fang-sai/"/>
+    <id>https://www.lemir3.red/2020/11/11/zong-jie-11112020-ji-fang-sai/</id>
+    <published>2020-11-11T07:56:04.000Z</published>
+    <updated>2020-11-11T08:29:23.660Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要:科技小子或成最大赢家</p><a id="more"></a><h1 id="11112020机房赛"><a href="#11112020机房赛" class="headerlink" title="11112020机房赛"></a>11112020机房赛</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>呜呼最近的考试好多原题啊<del>不会教练又被骗了吧</del>.</p><p>T1觉得可能有什么巧解,但是看到数据范围发现可以用<code>splay</code>维护,于是直接就开打了,但是我维护的方式比较怪,调得有点久.</p><p>然后看T2,其实没多久就想到贪心后分配剩下的位置的做法了,但是被1e3的数据范围唬住了,以为是什么n方dp做法,于是打了1和2的两个情况就去看T3了,准备把后面题做完再来继续想.但其实正解是nlogn的做法,而且2情况的做法和正解都差不多了,于是成为全场唯一没过这题的人.</p><p>T3看出是个容斥组合题,但我想的方法容斥系数不太好求,1e7的话没法做,就打了一个状压的30分和一个不用容斥的20分,数据出得比较水全部不容斥直接算都有40.</p><p>最后一个小时的时候开的T4,是个叫斯坦纳树的冷门算法,已经忘了怎么打了,于是想了个上下界最小费用流最大流的做法,时间太少了没调出来,后来发现是起点的流量设错了.</p><p>以后就尽量不要把已经有思路的题先放到一边做后面的题了,万一后面遇到题调不出来就无了,而且这次又是数据结构调得久,调数据结构还是不要打印中间变量了,变量太多了浪费时间,不如直接看代码抽象理解.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;摘要:科技小子或成最大赢家&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/categories/总结/"/>
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/tags/总结/"/>
+    
+  </entry>
   
   <entry>
     <title>「游记」csps2020游记</title>
@@ -144,9 +165,9 @@
     
     
     
-    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
-    
     <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
+    
+    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -171,9 +192,9 @@
     
     
     
-    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
-    
     <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
+    
+    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -464,31 +485,6 @@
     <category term="数据结构" scheme="https://www.lemir3.red/tags/数据结构/"/>
     
     <category term="树状数组" scheme="https://www.lemir3.red/tags/树状数组/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「解题报告」CF1288D_Minimax_Problem</title>
-    <link href="https://www.lemir3.red/2020/10/20/jie-ti-bao-gao-cf1288d-minimax-problem/"/>
-    <id>https://www.lemir3.red/2020/10/20/jie-ti-bao-gao-cf1288d-minimax-problem/</id>
-    <published>2020-10-20T13:30:39.000Z</published>
-    <updated>2020-10-20T13:43:47.531Z</updated>
-    
-    <content type="html"><![CDATA[<p>摘要:二分答案后将序列按大小逻辑关系转化成二进制串求解</p><a id="more"></a><h1 id="CF1288D-Minimax-Problem"><a href="#CF1288D-Minimax-Problem" class="headerlink" title="CF1288D_Minimax_Problem"></a>CF1288D_Minimax_Problem</h1><p><a href="https://codeforces.com/contest/1288/problem/D" target="_blank" rel="noopener">题面</a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>题意是找$n$个长度为$m$的序列中的两个序列,其中对位取最大值形成的新序列中的最小值要尽量大.</p><p>这种限制套路性地想到用二分答案,二分一个新序列中的最小值,然后发现要找的两个序列中必须满足在某一位上至少有其中一个大于二分的这个值.</p><p>这里有一个逻辑关系,考虑$m$的最值为$8$,把每个序列按照这个逻辑关系压成二进制串,然后相当于是在$n$个数中找2个数or等于$2^m - 1$.</p><p>可以开一个桶,记录下当前有的二进制串,然后枚举每一个数,取它的补集,判断桶中是否有这个数.</p><p>有点不对劲,因为是or,所以可能两个数的某一位上都是$1$,这样做是没法求出的,所以说得取补集的超集来判断.</p><p>求一个集的超集就取它的补集,然后枚举补集的子集,将枚举到的子集和原集并起来.</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lxl;</span><br><span class="line"><span class="keyword">const</span> lxl small=<span class="number">10</span>,midd=<span class="number">300</span>,big=<span class="number">300010</span>;</span><br><span class="line">lxl n,m,choa,chob;</span><br><span class="line">lxl a[big][small],bit[big],<span class="built_in">map</span>[midd];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">lxl f(1),x(0);</span><br><span class="line"><span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line"><span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line"><span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">check</span><span class="params">(lxl lim)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">memset</span>(<span class="built_in">map</span>,<span class="number">0</span>,<span class="keyword">sizeof</span> <span class="built_in">map</span>);</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">&#123;</span><br><span class="line">bit[i]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> j(<span class="number">0</span>);j&lt;m;++j)</span><br><span class="line">bit[i]=(bit[i]&lt;&lt;<span class="number">1</span>)|(a[i][j]&gt;=lim);</span><br><span class="line"><span class="keyword">if</span>(bit[i]==(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>)&#123;choa=chob=i;<span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br><span class="line"><span class="built_in">map</span>[bit[i]]=i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">&#123;</span><br><span class="line">lxl all=(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>;</span><br><span class="line">lxl want=all^bit[i];</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">map</span>[want])&#123;choa=i,chob=<span class="built_in">map</span>[want];<span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> j(bit[i]);j;j=bit[i]&amp;(j<span class="number">-1</span>))</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">map</span>[want|j])&#123;choa=i,chob=<span class="built_in">map</span>[want|j];<span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">n=read(),m=read();</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> j(<span class="number">0</span>);j&lt;m;++j)</span><br><span class="line">a[i][j]=read();</span><br><span class="line">lxl l(0),r(1e9),mid,ansa,ansb;</span><br><span class="line"><span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">&#123;</span><br><span class="line">mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(check(mid))ansa=choa,ansb=chob,l=mid+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> r=mid<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>,ansa,ansb);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要:二分答案后将序列按大小逻辑关系转化成二进制串求解&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="其他" scheme="https://www.lemir3.red/categories/其他/"/>
-    
-    <category term="其他-二分" scheme="https://www.lemir3.red/categories/其他/其他-二分/"/>
-    
-    
-    <category term="其他" scheme="https://www.lemir3.red/tags/其他/"/>
-    
-    <category term="二分" scheme="https://www.lemir3.red/tags/二分/"/>
     
   </entry>
   
