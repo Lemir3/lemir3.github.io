@@ -6,7 +6,7 @@
   <link href="https://www.lemir3.red/atom.xml" rel="self"/>
   
   <link href="https://www.lemir3.red/"/>
-  <updated>2020-11-11T08:29:23.660Z</updated>
+  <updated>2020-11-13T11:41:46.205Z</updated>
   <id>https://www.lemir3.red/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「总结」11132020机房赛</title>
+    <link href="https://www.lemir3.red/2020/11/13/zong-jie-11132020-ji-fang-sai/"/>
+    <id>https://www.lemir3.red/2020/11/13/zong-jie-11132020-ji-fang-sai/</id>
+    <published>2020-11-13T10:08:13.000Z</published>
+    <updated>2020-11-13T11:41:46.205Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要:这有啥好摘要的</p><a id="more"></a><h1 id="11132020机房赛"><a href="#11132020机房赛" class="headerlink" title="11132020机房赛"></a>11132020机房赛</h1><p>最近两天三考时间太紧了,还是不写详细解法了,以后翻教练发的题解看吧.</p><p>这一周的考试基本都是些原题,结论题和莫名奇妙的暴搜,今天的题质量好得多.</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>T1半个小时就做出来了,就用组合手推了下二次函数的式子,二分出取值的范围,因为是二次函数取范围的左端点和右端点即可,但是有个<code>while</code>写成<code>if</code>了,掉了20pts.</p><p>然后看了眼T2发现比较难,T3一眼没啥思路,就先写了T3的50分做法去做T2,但是写丑了T到35pts.</p><p>T2到最后都没啥正确的思路,dp因为没法考虑另一个集合的尾部做了个假的,大样例都过不去,要记录另一个集合的尾部的话要多一维,空间我就压不下去了,后面看题解发现只处理集合的尾部思路和我差不多,转移思路也挺像的,但我状态实在是设得太差了,得多看看dp了.</p><p>最近组合容斥题考得多,今晚去练练.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;摘要:这有啥好摘要的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/categories/总结/"/>
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/tags/总结/"/>
+    
+  </entry>
   
   <entry>
     <title>「总结」11112020机房赛</title>
@@ -165,9 +186,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -192,9 +213,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -456,35 +477,6 @@
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
     
     <category term="数论" scheme="https://www.lemir3.red/tags/数论/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「解题报告」UVA12983_The_Battle_of_Chibi</title>
-    <link href="https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-uva12983-the-battle-of-chibi/"/>
-    <id>https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-uva12983-the-battle-of-chibi/</id>
-    <published>2020-10-21T08:11:01.000Z</published>
-    <updated>2020-10-21T08:28:58.227Z</updated>
-    
-    <content type="html"><![CDATA[<p>摘要:树状数组优化转移</p><a id="more"></a><h1 id="UVA12983-The-Battle-of-Chibi"><a href="#UVA12983-The-Battle-of-Chibi" class="headerlink" title="UVA12983_The_Battle_of_Chibi"></a>UVA12983_The_Battle_of_Chibi</h1><p><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=4866" target="_blank" rel="noopener">题面</a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>设$f_{i , j}$表示在以第$i$位作为序列的结尾时出现长度为$j$的上升子序列的个数,那么显然有转移:</p><script type="math/tex; mode=display">f_{i , j} = f_{k , j - 1} + 1 ~ ( ~ a_k < a_i ~ , ~ k < i ~ )</script><p>这样转移是$O( n^2 m )$的,时间上无法接受,但是我们发现,既然是由$i$之前小于$a_i$的位置来转移,那么我们可以在之前的转移中就把这样的转移位置存进树状数组中,具体来说,对于每一个$j$,我们开一颗树状数组,如果$f_{k , j}$有值,那么在$j$这一颗树状数组的$a_k$位置上插入$f_{k , j}$,之后的转移就可以直接在需要的$j$对应的树状数组上查询了,时间复杂度为$O(nmlogn)$.</p><p>注意对$a$离散化.</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;-x)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lxl;</span><br><span class="line"><span class="keyword">const</span> lxl big=<span class="number">1010</span>,mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">lxl T,n,m,case_;</span><br><span class="line">lxl f[big][big],a[big],b[big],t[big][big];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">lxl f(1),x(0);</span><br><span class="line"><span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line"><span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line"><span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modify</span><span class="params">(lxl *T,lxl x,lxl k)</span></span>&#123;<span class="keyword">for</span>(;x&lt;big;x+=lowbit(x))T[x]=(T[x]+k)%mod;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">query</span><span class="params">(lxl *T,lxl x)</span></span>&#123;<span class="function">lxl <span class="title">sum</span><span class="params">(<span class="number">0</span>)</span></span>;<span class="keyword">for</span>(;x;x-=lowbit(x))sum=(sum+T[x])%mod;<span class="keyword">return</span> sum;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// freopen("data.txt","r",stdin);</span></span><br><span class="line"><span class="comment">// freopen("data.out","w",stdout);</span></span><br><span class="line">T=read();</span><br><span class="line"><span class="keyword">while</span>(T--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">memset</span>(t,<span class="number">0</span>,<span class="keyword">sizeof</span> t),<span class="built_in">memset</span>(f,<span class="number">0</span>,<span class="keyword">sizeof</span> f);</span><br><span class="line">n=read(),m=read();</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)a[i]=b[i]=read();</span><br><span class="line"><span class="built_in">std</span>::sort(b+<span class="number">1</span>,b+<span class="number">1</span>+n);lxl len=<span class="built_in">std</span>::unique(b+<span class="number">1</span>,b+<span class="number">1</span>+n)-b<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)a[i]=<span class="built_in">std</span>::lower_bound(b+<span class="number">1</span>,b+<span class="number">1</span>+len,a[i])-b;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> j(<span class="built_in">std</span>::min((lxl)i,m));j&gt;=<span class="number">2</span>;--j)</span><br><span class="line">&#123;</span><br><span class="line">lxl add=query(t[j<span class="number">-1</span>],a[i]<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">if</span>(add)f[i][j]=add,modify(t[j],a[i],add);</span><br><span class="line">&#125;</span><br><span class="line">f[i][<span class="number">1</span>]=<span class="number">1</span>,modify(t[<span class="number">1</span>],a[i],<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">lxl ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)ans=(ans+f[i][m])%mod;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Case #%lld: %lld\n"</span>,++case_,ans);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1 5 3</span></span><br><span class="line"><span class="comment">1 3 4 2 5</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">3 2</span></span><br><span class="line"><span class="comment">1 2 3</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">7 4</span></span><br><span class="line"><span class="comment">1 7 7 8 6 4 1</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要:树状数组优化转移&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="动态规划" scheme="https://www.lemir3.red/categories/动态规划/"/>
-    
-    <category term="数据结构" scheme="https://www.lemir3.red/categories/动态规划/数据结构/"/>
-    
-    <category term="数据结构-树状数组" scheme="https://www.lemir3.red/categories/动态规划/数据结构/数据结构-树状数组/"/>
-    
-    
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
-    <category term="数据结构" scheme="https://www.lemir3.red/tags/数据结构/"/>
-    
-    <category term="树状数组" scheme="https://www.lemir3.red/tags/树状数组/"/>
     
   </entry>
   
