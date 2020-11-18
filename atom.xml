@@ -6,7 +6,7 @@
   <link href="https://www.lemir3.red/atom.xml" rel="self"/>
   
   <link href="https://www.lemir3.red/"/>
-  <updated>2020-11-13T11:41:46.205Z</updated>
+  <updated>2020-11-18T09:32:09.979Z</updated>
   <id>https://www.lemir3.red/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>「总结」11182020机房赛</title>
+    <link href="https://www.lemir3.red/2020/11/18/zong-jie-11182020-ji-fang-sai/"/>
+    <id>https://www.lemir3.red/2020/11/18/zong-jie-11182020-ji-fang-sai/</id>
+    <published>2020-11-18T09:18:11.000Z</published>
+    <updated>2020-11-18T09:32:09.979Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要:焉 王 外 传</p><a id="more"></a><h1 id="11182020机房赛"><a href="#11182020机房赛" class="headerlink" title="11182020机房赛"></a>11182020机房赛</h1><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>T3还在和题解大力对拍,先把总结写了.</p><p>T1看范围认为是数学题,手推了一下没有什么特别显然的规律,主要是哪边取最值不好处理,于是写了个分治来往下递归处理,因为只有<code>log</code>层所以状态数很少可以给记忆化,但是看这题空间只给了<code>5MB</code>,本来把数组开够了而且也不会MLE的的,后来觉得开小一点保险些,就挂了最后3个点.</p><p>T2没有仔细去读题,没发现只有一个函数与输出有关,然后可以做图论转化,以为是个大模拟题就没写.</p><p>T3犯了两个错,一个是在计算概率的时候没有记忆化,然后一个点多次遍历效率极低,然后是在算出一个点上的所有概率之后,在计算总概率的时候容斥的方式太低效了,没有做好那个用补集去容斥,概率上的容斥不太会,应该多去观察概率题的概率计算方式技巧的.</p><p>T4没有往图论方面想,考场上也没写,图论的基础比较薄弱,不怎么会做模型转化.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;摘要:焉 王 外 传&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/categories/总结/"/>
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/tags/总结/"/>
+    
+  </entry>
+  
+  <entry>
     <title>「总结」11132020机房赛</title>
     <link href="https://www.lemir3.red/2020/11/13/zong-jie-11132020-ji-fang-sai/"/>
     <id>https://www.lemir3.red/2020/11/13/zong-jie-11132020-ji-fang-sai/</id>
     <published>2020-11-13T10:08:13.000Z</published>
-    <updated>2020-11-13T11:41:46.205Z</updated>
+    <updated>2020-11-13T11:54:02.195Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要:这有啥好摘要的</p><a id="more"></a><h1 id="11132020机房赛"><a href="#11132020机房赛" class="headerlink" title="11132020机房赛"></a>11132020机房赛</h1><p>最近两天三考时间太紧了,还是不写详细解法了,以后翻教练发的题解看吧.</p><p>这一周的考试基本都是些原题,结论题和莫名奇妙的暴搜,今天的题质量好得多.</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>T1半个小时就做出来了,就用组合手推了下二次函数的式子,二分出取值的范围,因为是二次函数取范围的左端点和右端点即可,但是有个<code>while</code>写成<code>if</code>了,掉了20pts.</p><p>然后看了眼T2发现比较难,T3一眼没啥思路,就先写了T3的50分做法去做T2,但是写丑了T到35pts.</p><p>T2到最后都没啥正确的思路,dp因为没法考虑另一个集合的尾部做了个假的,大样例都过不去,要记录另一个集合的尾部的话要多一维,空间我就压不下去了,后面看题解发现只处理集合的尾部思路和我差不多,转移思路也挺像的,但我状态实在是设得太差了,得多看看dp了.</p><p>最近组合容斥题考得多,今晚去练练.</p>]]></content>
+    <content type="html"><![CDATA[<p>摘要:这有啥好摘要的</p><a id="more"></a><h1 id="11132020机房赛"><a href="#11132020机房赛" class="headerlink" title="11132020机房赛"></a>11132020机房赛</h1><p>最近两天三考时间太紧了,还是不写详细解法了,以后翻教练发的题解看吧.</p><p>这一周的考试基本都是些原题,结论题和莫名奇妙的暴搜,今天的题质量好得多.</p><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>T1半个小时就做出来了,就用组合手推了下二次函数的式子,二分出取值的范围,因为是二次函数取范围的左端点和右端点即可,但是有个<code>while</code>写成<code>if</code>了,掉了20pts.</p><p>然后看了眼T2发现比较难,T3一眼没啥思路,就先写了T3的50分做法去做T2,但是写丑了T到35pts.</p><p>T2到最后都没啥正确的思路,dp因为没法考虑另一个集合的尾部做了个假的,大样例都过不去,要记录另一个集合的尾部的话要多一维,空间我就压不下去了,后面看题解发现只处理集合的尾部思路和我差不多,转移思路也挺像的,但我状态实在是设得太差了,得多看看dp了.</p><p>最近组合容斥题考得多,今晚去练练.</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;摘要:这有啥好摘要的&lt;/p&gt;</summary>
@@ -42,9 +63,9 @@
     <link href="https://www.lemir3.red/2020/11/11/zong-jie-11112020-ji-fang-sai/"/>
     <id>https://www.lemir3.red/2020/11/11/zong-jie-11112020-ji-fang-sai/</id>
     <published>2020-11-11T07:56:04.000Z</published>
-    <updated>2020-11-11T08:29:23.660Z</updated>
+    <updated>2020-11-13T11:53:56.123Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要:科技小子或成最大赢家</p><a id="more"></a><h1 id="11112020机房赛"><a href="#11112020机房赛" class="headerlink" title="11112020机房赛"></a>11112020机房赛</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>呜呼最近的考试好多原题啊<del>不会教练又被骗了吧</del>.</p><p>T1觉得可能有什么巧解,但是看到数据范围发现可以用<code>splay</code>维护,于是直接就开打了,但是我维护的方式比较怪,调得有点久.</p><p>然后看T2,其实没多久就想到贪心后分配剩下的位置的做法了,但是被1e3的数据范围唬住了,以为是什么n方dp做法,于是打了1和2的两个情况就去看T3了,准备把后面题做完再来继续想.但其实正解是nlogn的做法,而且2情况的做法和正解都差不多了,于是成为全场唯一没过这题的人.</p><p>T3看出是个容斥组合题,但我想的方法容斥系数不太好求,1e7的话没法做,就打了一个状压的30分和一个不用容斥的20分,数据出得比较水全部不容斥直接算都有40.</p><p>最后一个小时的时候开的T4,是个叫斯坦纳树的冷门算法,已经忘了怎么打了,于是想了个上下界最小费用流最大流的做法,时间太少了没调出来,后来发现是起点的流量设错了.</p><p>以后就尽量不要把已经有思路的题先放到一边做后面的题了,万一后面遇到题调不出来就无了,而且这次又是数据结构调得久,调数据结构还是不要打印中间变量了,变量太多了浪费时间,不如直接看代码抽象理解.</p>]]></content>
+    <content type="html"><![CDATA[<p>摘要:科技小子或成最大赢家</p><a id="more"></a><h1 id="11112020机房赛"><a href="#11112020机房赛" class="headerlink" title="11112020机房赛"></a>11112020机房赛</h1><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>呜呼最近的考试好多原题啊<del>不会教练又被骗了吧</del>.</p><p>T1觉得可能有什么巧解,但是看到数据范围发现可以用<code>splay</code>维护,于是直接就开打了,但是我维护的方式比较怪,调得有点久.</p><p>然后看T2,其实没多久就想到贪心后分配剩下的位置的做法了,但是被1e3的数据范围唬住了,以为是什么n方dp做法,于是打了1和2的两个情况就去看T3了,准备把后面题做完再来继续想.但其实正解是nlogn的做法,而且2情况的做法和正解都差不多了,于是成为全场唯一没过这题的人.</p><p>T3看出是个容斥组合题,但我想的方法容斥系数不太好求,1e7的话没法做,就打了一个状压的30分和一个不用容斥的20分,数据出得比较水全部不容斥直接算都有40.</p><p>最后一个小时的时候开的T4,是个叫斯坦纳树的冷门算法,已经忘了怎么打了,于是想了个上下界最小费用流最大流的做法,时间太少了没调出来,后来发现是起点的流量设错了.</p><p>以后就尽量不要把已经有思路的题先放到一边做后面的题了,万一后面遇到题调不出来就无了,而且这次又是数据结构调得久,调数据结构还是不要打印中间变量了,变量太多了浪费时间,不如直接看代码抽象理解.</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;摘要:科技小子或成最大赢家&lt;/p&gt;</summary>
@@ -186,9 +207,9 @@
     
     
     
-    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
-    
     <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
+    
+    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -213,9 +234,9 @@
     
     
     
-    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
-    
     <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
+    
+    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -452,31 +473,6 @@
     
     
     <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「解题报告」luogu1072_Hankson_的趣味题</title>
-    <link href="https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-luogu1072-hankson-de-qu-wei-ti/"/>
-    <id>https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-luogu1072-hankson-de-qu-wei-ti/</id>
-    <published>2020-10-21T08:41:37.000Z</published>
-    <updated>2020-10-22T08:52:50.606Z</updated>
-    
-    <content type="html"><![CDATA[<p>摘要:推性质后枚举</p><a id="more"></a><h1 id="luogu1072-Hankson-的趣味题"><a href="#luogu1072-Hankson-的趣味题" class="headerlink" title="luogu1072_Hankson_的趣味题"></a>luogu1072_Hankson_的趣味题</h1><p><a href="https://www.luogu.com.cn/problem/P1072" target="_blank" rel="noopener">题面</a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>意思是要求:</p><script type="math/tex; mode=display">\begin{cases}\gcd(x , a_0) = a_1\\\textrm{lcm} ( x ,b_0 )  = b_1 \end{cases}</script><p>那么转化一下就是:</p><script type="math/tex; mode=display">\begin{cases}\gcd(x , a_0) = a_1\\\frac {x \cdot b_0}{\gcd(x ,b_0)}  = b_1 \end{cases}\\\rightarrow\\\begin{cases}\gcd(\frac{x}{a1} , \frac{a_0}{a_1}) = 1\\\gcd(\frac{b1}{x} , \frac{b_1}{b_0}) = 1\end{cases}</script><p>然后枚举$b_1$的约数作为$x$,判断一下是否满足是$a_1$的倍数和两个等式即可.</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lxl;</span><br><span class="line">lxl T,a0,a1,b0,b1;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">lxl f(1),x(0);</span><br><span class="line"><span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line"><span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line"><span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">lxl <span class="title">gcd</span><span class="params">(lxl a,lxl b)</span></span>&#123;<span class="keyword">return</span> !b?a:gcd(b,a%b);&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">T=read();</span><br><span class="line"><span class="keyword">while</span>(T--)</span><br><span class="line">&#123;</span><br><span class="line"><span class="function">lxl <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">a0=read(),a1=read(),b0=read(),b1=read();</span><br><span class="line">b0=b1/b0,a0=a0/a1;</span><br><span class="line">lxl len=<span class="built_in">sqrt</span>(b1);</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> x(<span class="number">1</span>);x&lt;=len;++x)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(b1%x)<span class="keyword">continue</span>;</span><br><span class="line">lxl x1=x,x2=b1/x;</span><br><span class="line"><span class="keyword">if</span>(!(b1%x1))</span><br><span class="line"><span class="keyword">if</span>(!(x1%a1))</span><br><span class="line"><span class="keyword">if</span>(gcd(b1/x1,b0)==<span class="number">1</span>&amp;&amp;gcd(x1/a1,a0)==<span class="number">1</span>)</span><br><span class="line">++ans;</span><br><span class="line"><span class="keyword">if</span>(x1==x2)<span class="keyword">continue</span>;</span><br><span class="line"><span class="keyword">if</span>(!(b1%x2))</span><br><span class="line"><span class="keyword">if</span>(!(x2%a1))</span><br><span class="line"><span class="keyword">if</span>(gcd(b1/x2,b0)==<span class="number">1</span>&amp;&amp;gcd(x2/a1,a0)==<span class="number">1</span>)</span><br><span class="line">++ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要:推性质后枚举&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数学" scheme="https://www.lemir3.red/categories/数学/"/>
-    
-    <category term="数学-数论" scheme="https://www.lemir3.red/categories/数学/数学-数论/"/>
-    
-    
-    <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
-    
-    <category term="数论" scheme="https://www.lemir3.red/tags/数论/"/>
     
   </entry>
   
