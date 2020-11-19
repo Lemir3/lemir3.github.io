@@ -6,7 +6,7 @@
   <link href="https://www.lemir3.red/atom.xml" rel="self"/>
   
   <link href="https://www.lemir3.red/"/>
-  <updated>2020-11-18T09:32:09.979Z</updated>
+  <updated>2020-11-19T14:00:56.795Z</updated>
   <id>https://www.lemir3.red/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>「总结」11192020纪中培训赛</title>
+    <link href="https://www.lemir3.red/2020/11/19/zong-jie-11192020-ji-zhong-pei-xun-sai/"/>
+    <id>https://www.lemir3.red/2020/11/19/zong-jie-11192020-ji-zhong-pei-xun-sai/</id>
+    <published>2020-11-19T13:42:08.000Z</published>
+    <updated>2020-11-19T14:00:56.795Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要:无</p><a id="more"></a><h1 id="11192020纪中培训赛"><a href="#11192020纪中培训赛" class="headerlink" title="11192020纪中培训赛"></a>11192020纪中培训赛</h1><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>T4的数据结构给我调了一下午加一晚上了,T3的矩阵优化dp还没写,马上下自习了就把总结写了吧.</p><p>刚看完题就发现T2可做,一眼发现了向两边扩展的性质,然后就做到线性了,10分钟就打完了.</p><p>然后去做T1,推了一波式子发现没什么特点,于是推了个判断删除的不等式,<code>vector</code>里按<code>k</code>单增插入进去,每次二分出删除的区间暴力删,但是发现一边枚举一边筛迭代器不好做(流下了没有语言基础的泪水),而且<code>vector</code>的<code>erase</code>函数是很慢的,于是就给删掉的元素打个删除标记,操作了根号次之后重构<code>vector</code>,本来觉得这么奇怪的做法拿不到多少分的,估分写的30pts,结果复杂度是对的直接过了…</p><p>T3又期望又计数我直接不怎么会,连$O(nk)$的简单dp都没写出来,写了个$O(n^2k)$的大力dp加一波性质优化常数拿了20,后来想了一想多设一维就可以做$O(nk)$了…然后把这个转移拿去写成矩阵,矩阵套矩阵乘出答案矩阵就好了,貌似很难写,明天有空来写了.</p><p>T4同样没什么思路,于是就去打部分分了,首先是发现题目相当于是在无根树上不回溯地遍历,然后如果从一个点开始,到第一个拿到钥匙的点的之前的路径都相当于是无效的,所以就从有钥匙的点开始枚举,把这些点当作根,向下面枚举出一条最大的链即可,设有钥匙的点有$k$个,那么复杂度是$O(nk)$,结合后面有特殊性质的数据可以拿到40pts,然后是$x=y$的20pts,发现很像赛道修建那道题,就维护一颗无根树上权值最大的路径,在每个点上维护子树里面的接上来的链,然后把最大和次大拼起来更新答案,并把最大的一条接到父亲去.</p><p>其实T4的正解也不难想,以前做过一道期望题的转化方式就很像,就是说要得到树上的一条路径,如果$y$出现在$x$的前面就有贡献,那么考虑每个起点和终点的位置会包含哪些贡献,这个构成了一个二维的关系,就可以用线段树做扫描线,每次在二维关系上加上贡献,取最大值即为答案,具体实现要考虑一波dfs序,而且还卡常特别恶心…应该多留心dfs序的应用的,有些地方打得很丑.</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;摘要:无&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/categories/总结/"/>
+    
+    
+    <category term="总结" scheme="https://www.lemir3.red/tags/总结/"/>
+    
+  </entry>
+  
+  <entry>
     <title>「总结」11182020机房赛</title>
     <link href="https://www.lemir3.red/2020/11/18/zong-jie-11182020-ji-fang-sai/"/>
     <id>https://www.lemir3.red/2020/11/18/zong-jie-11182020-ji-fang-sai/</id>
     <published>2020-11-18T09:18:11.000Z</published>
-    <updated>2020-11-18T09:32:09.979Z</updated>
+    <updated>2020-11-18T12:19:23.852Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要:焉 王 外 传</p><a id="more"></a><h1 id="11182020机房赛"><a href="#11182020机房赛" class="headerlink" title="11182020机房赛"></a>11182020机房赛</h1><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>T3还在和题解大力对拍,先把总结写了.</p><p>T1看范围认为是数学题,手推了一下没有什么特别显然的规律,主要是哪边取最值不好处理,于是写了个分治来往下递归处理,因为只有<code>log</code>层所以状态数很少可以给记忆化,但是看这题空间只给了<code>5MB</code>,本来把数组开够了而且也不会MLE的的,后来觉得开小一点保险些,就挂了最后3个点.</p><p>T2没有仔细去读题,没发现只有一个函数与输出有关,然后可以做图论转化,以为是个大模拟题就没写.</p><p>T3犯了两个错,一个是在计算概率的时候没有记忆化,然后一个点多次遍历效率极低,然后是在算出一个点上的所有概率之后,在计算总概率的时候容斥的方式太低效了,没有做好那个用补集去容斥,概率上的容斥不太会,应该多去观察概率题的概率计算方式技巧的.</p><p>T4没有往图论方面想,考场上也没写,图论的基础比较薄弱,不怎么会做模型转化.</p>]]></content>
+    <content type="html"><![CDATA[<p>摘要:焉 王 外 传</p><a id="more"></a><h1 id="11182020机房赛"><a href="#11182020机房赛" class="headerlink" title="11182020机房赛"></a>11182020机房赛</h1><h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>T3还在和题解大力对拍,先把总结写了.</p><p>T1看范围认为是数学题,手推了一下没有什么特别显然的规律,主要是哪边取最值不好处理,于是写了个分治来往下递归处理,因为只有$\log$层所以状态数很少可以给记忆化,但是看这题空间只给了<code>5MB</code>,本来把数组开够了而且也不会MLE的的,后来觉得开小一点保险些,就挂了最后3个点.</p><p>T2没有仔细去读题,没发现只有一个函数与输出有关,然后可以做图论转化,以为是个大模拟题就没写.</p><p>T3犯了两个错,一个是在计算概率的时候没有记忆化,然后一个点多次遍历效率极低,然后是在算出一个点上的所有概率之后,在计算总概率的时候容斥的方式太低效了,没有做好那个用补集去容斥,概率上的容斥不太会,应该多去观察概率题的概率计算方式技巧的.</p><p>T4没有往图论方面想,考场上也没写,图论的基础比较薄弱,不怎么会做模型转化.</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;摘要:焉 王 外 传&lt;/p&gt;</summary>
@@ -207,9 +228,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -234,9 +255,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -452,27 +473,6 @@
     
     
     <category term="其他" scheme="https://www.lemir3.red/tags/其他/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「解题报告」luogu1282_多米诺骨牌</title>
-    <link href="https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-luogu1282-duo-mi-nuo-gu-pai/"/>
-    <id>https://www.lemir3.red/2020/10/21/jie-ti-bao-gao-luogu1282-duo-mi-nuo-gu-pai/</id>
-    <published>2020-10-21T12:46:43.000Z</published>
-    <updated>2020-10-21T12:57:23.655Z</updated>
-    
-    <content type="html"><![CDATA[<p>摘要:模型转化后dp</p><a id="more"></a><h1 id="luogu1282-多米诺骨牌"><a href="#luogu1282-多米诺骨牌" class="headerlink" title="luogu1282_多米诺骨牌"></a>luogu1282_多米诺骨牌</h1><p><a href="https://www.luogu.com.cn/problem/P1282" target="_blank" rel="noopener">题面</a></p><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>首先把这个翻转的模型转化一下,先把所有位置都转化到上面大于下面,然后算出两边的差值,记录有多少位置是需要翻转的.</p><p>现在翻转一个位置,设上面的数字为$a$,下面的为$b$,这样就可以让差值减少$2 \times ( a - b )$,如果原先就是上面的数大于下面的数的话,这样做的代价为$1$,否则为$-1$,最后加上之前算出的翻转的值即可.</p><p>现在需要解决的问题是在让差值减少得最小的情况下让代价尽量小,设$fill_{i , j}$表示考虑前面的$i$个位置,当前的差值能否被刚好减少$j$,$f_{i , j}$表示考虑前面的$i$个位置,当前的差值被刚好减少了$j$时的最小代价,每次继承状态然后简单转移一下.</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cctype"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"iomanip"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"deque"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 4557430888798830399</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) printf(<span class="meta-string">"debug:%lld\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugi(x) printf(<span class="meta-string">"debug:%d\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debugf(x) printf(<span class="meta-string">"debug:%llf\n"</span>,x)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl putchar(<span class="meta-string">'\n'</span>)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> lxl;</span><br><span class="line"><span class="keyword">const</span> lxl small=<span class="number">1010</span>,big=<span class="number">10010</span>;</span><br><span class="line">lxl n,sum,all;</span><br><span class="line">lxl v[big],w[big],f[small][big],fill[small][big];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> lxl <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">c</span><span class="params">(getchar())</span></span>;</span><br><span class="line">lxl f(1),x(0);</span><br><span class="line"><span class="keyword">for</span>(;!<span class="built_in">isdigit</span>(c);(c==<span class="string">'-'</span>)&amp;&amp;(f=<span class="number">-1</span>),c=getchar());</span><br><span class="line"><span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>),c=getchar());</span><br><span class="line"><span class="keyword">return</span> f*x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// freopen("P1282_2.in","r",stdin);</span></span><br><span class="line">n=read();</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line">&#123;</span><br><span class="line">lxl a=read(),b=read();</span><br><span class="line"><span class="keyword">if</span>(a&gt;b)v[i]=<span class="number">2</span>*(a-b),sum+=a-b,w[i]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> v[i]=<span class="number">2</span>*(b-a),sum+=b-a,w[i]=<span class="number">-1</span>,++all;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(<span class="number">1</span>);i&lt;=n;++i)</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> j(<span class="number">1</span>);j&lt;=sum;++j)</span><br><span class="line">&#123;</span><br><span class="line">f[i][j]=f[i<span class="number">-1</span>][j],fill[i][j]=fill[i<span class="number">-1</span>][j];</span><br><span class="line"><span class="keyword">if</span>(fill[i<span class="number">-1</span>][j-v[i]]||!(j-v[i]))</span><br><span class="line">!fill[i][j]?fill[i][j]=<span class="literal">true</span>,f[i][j]=f[i<span class="number">-1</span>][j-v[i]]+w[i]:f[i][j]=<span class="built_in">std</span>::min(f[i][j],f[i<span class="number">-1</span>][j-v[i]]+w[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(R <span class="keyword">int</span> i(sum);~(i<span class="number">-1</span>);--i)<span class="keyword">if</span>(fill[n][i])&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,all+f[n][i]);<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">6 1</span></span><br><span class="line"><span class="comment">1 5</span></span><br><span class="line"><span class="comment">1 3</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">3 1</span></span><br><span class="line"><span class="comment">2 1</span></span><br><span class="line"><span class="comment">2 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">1 3</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">1 3</span></span><br><span class="line"><span class="comment">2 1</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">1 1</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">1 1</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要:模型转化后dp&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="动态规划" scheme="https://www.lemir3.red/categories/动态规划/"/>
-    
-    
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
   </entry>
   
