@@ -6,7 +6,7 @@
   <link href="https://www.lemir3.red/atom.xml" rel="self"/>
   
   <link href="https://www.lemir3.red/"/>
-  <updated>2020-12-01T13:50:10.819Z</updated>
+  <updated>2020-12-01T13:59:16.579Z</updated>
   <id>https://www.lemir3.red/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.lemir3.red/2020/12/01/zong-jie-11302020-1-11302020-2-12012020-ji-fang-sai/"/>
     <id>https://www.lemir3.red/2020/12/01/zong-jie-11302020-1-11302020-2-12012020-ji-fang-sai/</id>
     <published>2020-12-01T13:11:34.000Z</published>
-    <updated>2020-12-01T13:50:10.819Z</updated>
+    <updated>2020-12-01T13:59:16.579Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要: 无</p><a id="more"></a><h1 id="11302020-1-11302020-2-12012020机房赛"><a href="#11302020-1-11302020-2-12012020机房赛" class="headerlink" title="11302020_1/11302020_2/12012020机房赛"></a>11302020_1/11302020_2/12012020机房赛</h1><p>最近考试越来越频繁实在抽不出时间,许久没写总结了,今天晚上还有一个小时下晚自习,剩两个数据结构也打不完了于是把最近的一起写了.</p><h2 id="11302020-1"><a href="#11302020-1" class="headerlink" title="11302020_1"></a>11302020_1</h2><h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><p>T1差点没做出来,想到了确定数列后怎么$O(n)$统计答案,但是不知道数列怎么取值,虽然发现了肯定是取区间的两端,然后写了个假贪心,和暴力拍了一个多小时送走了,最后半个小时去上厕所路上才想到可以直接dp…</p><p>T2看样子都不太可做,于是去开T3了,想了一会做出了$O(nq)$,用栈来$O(n^2)$维护求出答案,然后觉得这个东西可以用线段树做,但是不知道怎么维护了就没写出来.线段树的话需要维护区间极差,然后考虑提高极差来使区间整体满足条件啥的,细节有点多,想清楚就不难写了.</p><p>T4正解特别神奇,把倍数关系转化到模$\gcd$意义下是真的没见过,然后就写了个$O(n^4)$的大力dp拿了40pts.</p><p>然后回去写T2,暴力都不怎么会,写树的情况还写挂了,拿了15pts的高分,然后这题正解是李超树维护凸包啥的…</p><h2 id="11302020-2"><a href="#11302020-2" class="headerlink" title="11302020_2"></a>11302020_2</h2><h3 id="summary-1"><a href="#summary-1" class="headerlink" title="summary"></a>summary</h3><p>T1直接不会,于是写了个套三层枚举子集然后主席树求出区间出现次数乘法原理统计答案的垃圾做法拿了60pts,正解的容斥也不难想,流下了没有数理基础的眼泪.</p><p>T2推了一波式子,开始写了个$O({(\frac{n}{l})}^2)$的垃圾做法,后来发现三个变量两个方程只用枚举一个其他的解出来然后验证方程就好了,于是做到$O(\frac{n}{l})$,出题人不知道咋想的数据里$l$随着$n$增大,跑得比正解还快,但是在妹子oj的评测环境下<code>ceil(b)!=floor(b)</code>挂掉了,掉了8pts.</p><p>T3又不会了,写了个阶乘狂暴拿了40pts.正解是考虑把快排卡成$O(n^2)$,就每次让它随机到最值,这样分治规模仅减少1.讨论一波再考虑字典序就出来了.</p><p>T4正解高阶自动机科技,直接不会,打了个40pts的哈希,发现大样例输出全是0,想后面的点全面输0骗分,但是把判断条件多打了个等号,然后刚好小的点全是等于判断条件的,于是这题相当于是全输0了,后面的点没骗到,前面的竟然还拿了15pts…</p><h2 id="12012020"><a href="#12012020" class="headerlink" title="12012020"></a>12012020</h2><h3 id="summary-2"><a href="#summary-2" class="headerlink" title="summary"></a>summary</h3><p>T1觉得$50 \times 50 \times 256 \times 256$的搜索规模可能会卡空间,然后写了个A*,结果忘了排序了,跑得比直接bfs还慢TLE到30pts化身人工智障…但其实数据给得水直接bfs就过了.</p><p>T2想了大半天,发现可以考虑分解后的质因数的指数的奇偶性,但是写法特别傻逼,每次枚举都用到了<code>vector</code>,直接T到55pts,正解就直接乘上去最后再考虑.</p><p>T3好难啊,几百行的大树题,$O(n^2)$的换两次根的做法还写挂了.</p><p>T4没看了,正解是个倍增优化的dp,一步一步往后想不是很困难.</p>]]></content>
+    <content type="html"><![CDATA[<p>摘要: 无</p><a id="more"></a><h1 id="11302020-1-11302020-2-12012020机房赛"><a href="#11302020-1-11302020-2-12012020机房赛" class="headerlink" title="11302020_1/11302020_2/12012020机房赛"></a>11302020_1/11302020_2/12012020机房赛</h1><p>最近考试越来越频繁实在抽不出时间,许久没写总结了,今天晚上还有一个小时下晚自习,剩两个数据结构也打不完了于是把最近的一起写了.</p><h2 id="11302020-1"><a href="#11302020-1" class="headerlink" title="11302020_1"></a>11302020_1</h2><h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><p>T1差点没做出来,想到了确定数列后怎么$O(n)$统计答案,但是不知道数列怎么取值,虽然发现了肯定是取区间的两端,然后写了个假贪心,和暴力拍了一个多小时送走了,最后半个小时去上厕所路上才想到可以直接dp…</p><p>T2看样子都不太可做,于是去开T3了,想了一会做出了$O(nq)$,用栈来$O(n)$维护求出答案,然后觉得这个东西可以用线段树做,但是不知道怎么维护了就没写出来.线段树的话需要维护区间极差,然后考虑提高极差来使区间整体满足条件啥的,细节有点多,想清楚就不难写了.</p><p>T4正解特别神奇,把倍数关系转化到模$\gcd$意义下是真的没见过,然后就写了个$O(n^4)$的大力dp拿了40pts.</p><p>然后回去写T2,暴力都不怎么会,写树的情况还写挂了,拿了15pts的高分,然后这题正解是李超树维护凸包啥的…</p><h2 id="11302020-2"><a href="#11302020-2" class="headerlink" title="11302020_2"></a>11302020_2</h2><h3 id="summary-1"><a href="#summary-1" class="headerlink" title="summary"></a>summary</h3><p>T1直接不会,于是写了个套三层枚举子集然后主席树求出区间出现次数乘法原理统计答案的垃圾做法拿了60pts,正解的容斥也不难想,流下了没有数理基础的眼泪.</p><p>T2推了一波式子,开始写了个$O({(\frac{n}{l})}^2)$的垃圾做法,后来发现三个变量两个方程只用枚举一个其他的解出来然后验证方程就好了,于是做到$O(\frac{n}{l})$,出题人不知道咋想的数据里$l$随着$n$增大,跑得比正解还快,但是在妹子oj的评测环境下<code>ceil(b)!=floor(b)</code>挂掉了,掉了8pts.</p><p>T3又不会了,写了个阶乘狂暴拿了40pts.正解是考虑把快排卡成$O(n^2)$,就每次让它随机到最值,这样分治规模仅减少1.讨论一波再考虑字典序就出来了.</p><p>T4正解高阶自动机科技,直接不会,打了个40pts的哈希,发现大样例输出全是0,想后面的点全面输0骗分,但是把判断条件多打了个等号,然后刚好小的点全是等于判断条件的,于是这题相当于是全输0了,后面的点没骗到,前面的竟然还拿了15pts…</p><h2 id="12012020"><a href="#12012020" class="headerlink" title="12012020"></a>12012020</h2><h3 id="summary-2"><a href="#summary-2" class="headerlink" title="summary"></a>summary</h3><p>T1觉得$50 \times 50 \times 256 \times 256$的搜索规模可能会卡空间,然后写了个A*,结果忘了排序了,跑得比直接bfs还慢TLE到30pts化身人工智障…但其实数据给得水直接bfs就过了.</p><p>T2想了大半天,发现可以考虑分解后的质因数的指数的奇偶性,但是写法特别傻逼,每次枚举都用到了<code>vector</code>,直接T到55pts,正解就直接乘上去最后再考虑.</p><p>T3好难啊,几百行的大树题,$O(n^2)$的换两次根的做法还写挂了.</p><p>T4没看了,正解是个倍增优化的dp,一步一步往后想不是很困难.</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;摘要: 无&lt;/p&gt;</summary>
@@ -249,9 +249,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
@@ -276,9 +276,9 @@
     
     
     
-    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
-    
     <category term="数学" scheme="https://www.lemir3.red/tags/数学/"/>
+    
+    <category term="动态规划" scheme="https://www.lemir3.red/tags/动态规划/"/>
     
     <category term="概率期望" scheme="https://www.lemir3.red/tags/概率期望/"/>
     
