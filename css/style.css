@@ -388,8 +388,7 @@ body {
     border-top: 0; } }
 
 ::selection {
-  background: #ef5350;
-  color: #fff; }
+  background: #cce2ff; }
 
 img {
   max-width: 100%;
